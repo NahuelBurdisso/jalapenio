@@ -76,6 +76,36 @@ function StarMesh(props: ThreeElements['group']) {
   )
 }
 
+/** A spotlight below the star aimed at the center, swaying gently. */
+function MovingSpot({ side, color }: { side: number; color: string }) {
+  const light = useRef<THREE.SpotLight>(null)
+  const target = useMemo(() => new THREE.Object3D(), [])
+  const baseX = side * 2.8
+
+  useFrame((state) => {
+    if (reducedMotion || !light.current) return
+    const t = state.clock.elapsedTime
+    light.current.position.x = baseX + Math.sin(t * 0.7 + side) * 1.1
+    light.current.position.z = 2.4 + Math.cos(t * 0.5 + side) * 0.7
+  })
+
+  return (
+    <>
+      <primitive object={target} position={[0, 0, 0]} />
+      <spotLight
+        ref={light}
+        position={[baseX, -3.4, 2.4]}
+        target={target}
+        angle={0.6}
+        penumbra={0.9}
+        intensity={14}
+        distance={14}
+        color={color}
+      />
+    </>
+  )
+}
+
 export default function StarScene() {
   return (
     <Canvas
@@ -87,6 +117,11 @@ export default function StarScene() {
       <ambientLight intensity={0.7} />
       <directionalLight position={[3, 4, 5]} intensity={1.4} />
       <directionalLight position={[-4, -2, 3]} intensity={0.8} color="#e23b3b" />
+
+      {/* two reflectors below, aimed at the star, swaying */}
+      <MovingSpot side={-1} color="#ffffff" />
+      <MovingSpot side={1} color="#e23b3b" />
+
       <StarMesh scale={1.25} />
 
       {/* Studio reflections built from light shapes — no external HDR, fully offline */}
