@@ -36,7 +36,7 @@ export function About() {
 
         {/* torn paper bio card, slightly rotated */}
         <Reveal delay={0.1}>
-          <div className="paper-card rotate-1 p-8 shadow-[0_30px_60px_-25px_rgba(0,0,0,0.7)] sm:p-10">
+          <div className="paper-card rotate-1 p-4 sm:p-6">
             <div className="text-ink/85 space-y-4 text-[15px] leading-relaxed">
               <p>
                 Soy <strong>Sofía Herrero</strong>. Empecé mis estudios en 2018

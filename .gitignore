@@ -26,3 +26,6 @@ dist-ssr
 
 # brainstorm visual companion
 .superpowers/
+
+# Claude Code local tooling
+.claude/
