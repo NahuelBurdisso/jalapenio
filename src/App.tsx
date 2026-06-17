@@ -1,5 +1,6 @@
 import { useLenis } from '@/hooks/useLenis'
 import { Grain } from '@/components/Grain'
+import { Reflectors } from '@/components/Reflectors'
 import { Nav } from '@/components/Nav'
 import { Hero } from '@/sections/Hero'
 import { About } from '@/sections/About'
@@ -11,6 +12,7 @@ function App() {
   useLenis()
   return (
     <>
+      <Reflectors />
       <Grain />
       <Nav />
       <main>

@@ -134,6 +134,53 @@ html.lenis body {
   animation-direction: reverse;
 }
 
+/* Page-wide stage reflectors (set by <Reflectors/>) */
+.reflector {
+  position: absolute;
+  bottom: -45vh;
+  width: 70vw;
+  height: 130vh;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform;
+}
+.reflector-a {
+  left: -25vw;
+  opacity: 0.45;
+  background: radial-gradient(
+    closest-side,
+    rgba(247, 247, 247, 0.55),
+    rgba(247, 247, 247, 0) 70%
+  );
+  animation: sweep-a 17s ease-in-out infinite alternate;
+}
+.reflector-b {
+  right: -25vw;
+  opacity: 0.5;
+  background: radial-gradient(
+    closest-side,
+    rgba(226, 59, 59, 0.6),
+    rgba(226, 59, 59, 0) 70%
+  );
+  animation: sweep-b 23s ease-in-out infinite alternate;
+}
+@keyframes sweep-a {
+  from {
+    transform: translateX(0) rotate(-6deg);
+  }
+  to {
+    transform: translateX(85vw) rotate(6deg);
+  }
+}
+@keyframes sweep-b {
+  from {
+    transform: translateX(0) rotate(6deg);
+  }
+  to {
+    transform: translateX(-85vw) rotate(-6deg);
+  }
+}
+
 /* Fixed film-grain overlay (set by <Grain/>) */
 .grain-overlay {
   position: fixed;
