@@ -1,6 +1,11 @@
 import { useMemo, useRef } from 'react'
 import { Canvas, useFrame, type ThreeElements } from '@react-three/fiber'
-import { Environment, Float, Lightformer } from '@react-three/drei'
+import {
+  Environment,
+  Float,
+  Lightformer,
+  SpotLight as VolumeSpot,
+} from '@react-three/drei'
 import * as THREE from 'three'
 
 const reducedMotion =
@@ -13,24 +18,26 @@ function StarMesh(props: ThreeElements['group']) {
   const mesh = useRef<THREE.Mesh>(null)
 
   const geometry = useMemo(() => {
-    const shape = new THREE.Shape()
-    const outer = 1
-    const inner = 0.17
-    for (let i = 0; i < 8; i++) {
-      const a = Math.PI / 2 - (i * Math.PI) / 4
-      const r = i % 2 === 0 ? outer : inner
-      const x = Math.cos(a) * r
-      const y = Math.sin(a) * r
-      if (i === 0) shape.moveTo(x, y)
-      else shape.lineTo(x, y)
+    // 5-point star, hollow frame (outline) — matches the Jalapeño isologo
+    const starPts = (outerR: number, innerR: number) => {
+      const pts: THREE.Vector2[] = []
+      for (let i = 0; i < 10; i++) {
+        const a = (i * Math.PI) / 5 - Math.PI / 2
+        const r = i % 2 === 0 ? outerR : innerR
+        pts.push(new THREE.Vector2(Math.cos(a) * r, Math.sin(a) * r))
+      }
+      return pts
     }
-    shape.closePath()
+    const shape = new THREE.Shape(starPts(1, 0.42))
+    const hole = new THREE.Path(starPts(0.64, 0.27).reverse())
+    shape.holes.push(hole)
+
     const geo = new THREE.ExtrudeGeometry(shape, {
-      depth: 0.32,
+      depth: 0.16,
       bevelEnabled: true,
-      bevelThickness: 0.14,
-      bevelSize: 0.1,
-      bevelSegments: 8,
+      bevelThickness: 0.07,
+      bevelSize: 0.05,
+      bevelSegments: 5,
       steps: 1,
     })
     geo.center()
@@ -92,14 +99,19 @@ function MovingSpot({ side, color }: { side: number; color: string }) {
   return (
     <>
       <primitive object={target} position={[0, 0, 0]} />
-      <spotLight
+      <VolumeSpot
         ref={light}
         position={[baseX, -3.4, 2.4]}
         target={target}
-        angle={0.6}
-        penumbra={0.9}
-        intensity={14}
-        distance={14}
+        angle={0.5}
+        penumbra={1}
+        intensity={18}
+        distance={16}
+        attenuation={7}
+        anglePower={4}
+        radiusTop={0.06}
+        radiusBottom={1.1}
+        opacity={0.45}
         color={color}
       />
     </>
