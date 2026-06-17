@@ -1,14 +1,11 @@
-import { SpiralBinding } from '@/components/SpiralBinding'
 import { Reveal } from '@/components/Reveal'
 
 export function About() {
   return (
     <section
       id="sobre-mi"
-      className="bg-char relative overflow-clip px-6 py-24 pl-16 sm:px-10 sm:pl-24 lg:py-36"
+      className="bg-char relative overflow-clip px-6 py-24 sm:px-10 lg:py-36"
     >
-      <SpiralBinding tone="dark" />
-
       {/* giant outline section number */}
       <span
         aria-hidden

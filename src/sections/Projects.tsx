@@ -1,4 +1,3 @@
-import { SpiralBinding } from '@/components/SpiralBinding'
 import { Reveal } from '@/components/Reveal'
 import { Marquee } from '@/components/Marquee'
 import { PROJECTS, type Project } from '@/data/projects'
@@ -101,9 +100,8 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="bg-char relative overflow-clip px-6 py-24 pl-16 sm:px-10 sm:pl-24 lg:py-36"
+      className="bg-char relative overflow-clip px-6 py-24 sm:px-10 lg:py-36"
     >
-      <SpiralBinding tone="dark" />
       <span
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
