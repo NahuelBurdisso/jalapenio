@@ -7,14 +7,18 @@
   --font-display: 'Anton', 'Arial Narrow', sans-serif;
   --font-sans: 'Public Sans', system-ui, sans-serif;
 
-  --color-ink: #1e1d1c;
-  --color-char: #0a0908;
-  --color-paper: #f7f7f7;
-  --color-bone: #ece7dc;
-  --color-chili: #9e1111;
-  --color-ember: #e23b3b;
-  --color-acid: #c8f000;
-  --color-amber: #e8a020;
+  /* Brand palette — only 3 colors. The extra tokens below are aliases
+     that point at the 3 brand colors so legacy class names keep working. */
+  --color-ink: #1e1d1c; /* brand black */
+  --color-paper: #f7f7f7; /* brand white */
+  --color-chili: #9e1111; /* brand red */
+
+  /* aliases → brand colors (kept purist: no off-brand hues) */
+  --color-char: #1e1d1c; /* was near-black → brand black */
+  --color-bone: #f7f7f7; /* was beige → brand white */
+  --color-ember: #9e1111; /* was bright red → brand red */
+  --color-acid: #9e1111; /* was lime → brand red */
+  --color-amber: #9e1111; /* was orange → brand red */
 
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -154,8 +158,8 @@ html.lenis body {
   opacity: 0.5;
   background: radial-gradient(
     closest-side,
-    rgba(226, 59, 59, 0.6),
-    rgba(226, 59, 59, 0) 70%
+    rgba(158, 17, 17, 0.6),
+    rgba(158, 17, 17, 0) 70%
   );
   animation: sweep-b 23s ease-in-out infinite alternate;
 }
