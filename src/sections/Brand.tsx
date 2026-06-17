@@ -1,4 +1,3 @@
-import { ChromeStar } from '@/components/ChromeStar'
 import { Reveal } from '@/components/Reveal'
 import { SERVICES } from '@/data/projects'
 import { cn } from '@/lib/cn'
@@ -19,7 +18,16 @@ function Lockup({ tone }: { tone: 'paper' | 'chili' | 'ink' }) {
         bg,
       )}
     >
-      <ChromeStar className="h-10 w-10 shrink-0" idle={false} />
+      <img
+        src="/estrella.png"
+        alt=""
+        aria-hidden
+        className={cn(
+          'h-9 w-auto shrink-0 object-contain',
+          // chrome reads light, so darken it on the white lockup for contrast
+          tone === 'paper' && 'brightness-[0.35] contrast-125',
+        )}
+      />
       <span className={cn('display text-2xl sm:text-3xl', word)}>Jalapeño</span>
     </div>
   )

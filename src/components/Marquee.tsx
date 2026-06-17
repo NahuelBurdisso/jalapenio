@@ -17,13 +17,13 @@ export function Marquee({
         {items.map((_, i) => (
           <span key={i} className="flex items-center">
             <span>{text}</span>
-            <span className="text-chili px-6">★</span>
+            <span className="text-chili px-6">·</span>
           </span>
         ))}
         {items.map((_, i) => (
           <span key={`b${i}`} className="flex items-center">
             <span>{text}</span>
-            <span className="text-chili px-6">★</span>
+            <span className="text-chili px-6">·</span>
           </span>
         ))}
       </div>

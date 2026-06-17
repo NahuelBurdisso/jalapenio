@@ -1,4 +1,4 @@
-import { ChromeStar } from '@/components/ChromeStar'
+import { WebglStar } from '@/components/WebglStar'
 import { Reveal } from '@/components/Reveal'
 import { MagneticButton } from '@/components/MagneticButton'
 
@@ -25,8 +25,8 @@ export function Contact() {
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
         <Reveal>
-          <div className="mx-auto mb-6 h-24 w-24 sm:h-32 sm:w-32">
-            <ChromeStar className="h-full w-full" />
+          <div className="mx-auto mb-6 h-44 w-44 sm:h-56 sm:w-56">
+            <WebglStar className="h-full w-full" />
           </div>
         </Reveal>
         <Reveal delay={0.05}>
@@ -66,9 +66,7 @@ export function Contact() {
       </div>
 
       <footer className="border-paper/10 text-paper/65 relative z-10 mx-auto mt-24 flex max-w-7xl flex-col items-center justify-between gap-4 border-t pt-8 text-xs sm:flex-row">
-        <span className="display text-paper text-base">
-          <span className="text-ember">★</span> Jalapeño
-        </span>
+        <span className="display text-paper text-base">Jalapeño</span>
         <span>Sofía Herrero · Marketing Digital · Crecimiento de marcas</span>
         <span>© {2026}</span>
       </footer>

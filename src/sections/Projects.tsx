@@ -57,7 +57,7 @@ function Card({ p, i }: { p: Project; i: number }) {
                 key={h}
                 className="border-paper/10 text-paper/70 flex items-start gap-2 border-b pb-2 text-sm"
               >
-                <span className={cn('mt-1 text-xs', a.text)}>★</span>
+                <span className={cn('mt-1 text-xs', a.text)}>·</span>
                 {h}
               </li>
             ))}

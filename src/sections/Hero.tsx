@@ -24,8 +24,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="border-paper/15 text-paper/70 mb-7 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[10px] font-bold tracking-[0.28em] uppercase"
           >
-            <span className="text-ember">★</span> Sofía Herrero · Marketing
-            Digital
+            Sofía Herrero · Marketing Digital
           </motion.p>
 
           <KineticClaim />
