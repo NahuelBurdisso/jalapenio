@@ -50,7 +50,8 @@ export function Contact() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <MagneticButton
               href={`https://wa.me/549${PHONE}`}
-              className="bg-paper text-ink hover:bg-paper"
+              variant="ghost"
+              className="text-paper ring-paper/25 hover:bg-paper hover:text-ink"
             >
               WhatsApp {PHONE_PRETTY}
             </MagneticButton>
