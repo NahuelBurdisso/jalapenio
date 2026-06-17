@@ -1,4 +1,7 @@
-# jalapenio
+# Jalapeño
+
+> Package/dir slug is `jalapenio` (ASCII) to avoid `ñ` breaking npm names,
+> paths, and URLs. The brand/display name is **Jalapeño**.
 
 Personal marketing portfolio — a creative, motion-led, WebGL-capable site.
 

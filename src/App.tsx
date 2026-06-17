@@ -6,7 +6,7 @@ function App() {
   return (
     <main className="grid min-h-dvh place-items-center">
       <p className="text-paper/40 font-mono text-sm tracking-widest uppercase">
-        jalapenio — scaffold ready
+        Jalapeño — scaffold ready
       </p>
     </main>
   )
