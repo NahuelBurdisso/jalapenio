@@ -1,14 +1,26 @@
-/**
- * App shell. Intentionally empty — pages/sections come in a later phase.
- * Tooling, design tokens, smooth-scroll and 3D stack are wired and ready.
- */
+import { useLenis } from '@/hooks/useLenis'
+import { Grain } from '@/components/Grain'
+import { Nav } from '@/components/Nav'
+import { Hero } from '@/sections/Hero'
+import { About } from '@/sections/About'
+import { Brand } from '@/sections/Brand'
+import { Projects } from '@/sections/Projects'
+import { Contact } from '@/sections/Contact'
+
 function App() {
+  useLenis()
   return (
-    <main className="grid min-h-dvh place-items-center">
-      <p className="text-paper/40 font-mono text-sm tracking-widest uppercase">
-        Jalapeño — scaffold ready
-      </p>
-    </main>
+    <>
+      <Grain />
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <Brand />
+        <Projects />
+        <Contact />
+      </main>
+    </>
   )
 }
 
