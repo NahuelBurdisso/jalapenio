@@ -1,3 +1,5 @@
+export type ProjectImage = { src: string; alt: string }
+
 export type Project = {
   id: string
   index: string
@@ -7,6 +9,7 @@ export type Project = {
   description: string
   objective: string
   highlights: string[]
+  images: ProjectImage[]
 }
 
 export const PROJECTS: Project[] = [
@@ -25,6 +28,24 @@ export const PROJECTS: Project[] = [
       'Campaña Día del Padre — dirección western',
       'Mes de Mayo — liquidación 50% off, clave neón',
     ],
+    images: [
+      {
+        src: '/projects/amnesia-1.jpg',
+        alt: 'Amnesia — grilla de contenido “buzo o suéter”',
+      },
+      {
+        src: '/projects/amnesia-2.jpg',
+        alt: 'Amnesia — sorteo campera puffer, collage halftone',
+      },
+      {
+        src: '/projects/amnesia-3.jpg',
+        alt: 'Amnesia — promo Día del Amigo 2x1',
+      },
+      {
+        src: '/projects/amnesia-4.jpg',
+        alt: 'Amnesia — campaña Día del Padre, dirección western',
+      },
+    ],
   },
   {
     id: 'marea',
@@ -41,6 +62,12 @@ export const PROJECTS: Project[] = [
       'Cobertura backstage y muestra digital',
       'Concepto: “fluí como la marea”',
     ],
+    images: [
+      {
+        src: '/projects/marea-1.jpg',
+        alt: 'Marea — desfile Paseo del Jockey, backstage y looks',
+      },
+    ],
   },
   {
     id: 'meta-ads',
@@ -55,6 +82,12 @@ export const PROJECTS: Project[] = [
       'Segmentación por audiencia y fecha',
       'Creatividades por promoción',
       'Optimización por CTR y conversión',
+    ],
+    images: [
+      {
+        src: '/projects/metaads-1.jpg',
+        alt: 'Meta Ads — campaña promo Mes de Mayo, liquidación 50% off',
+      },
     ],
   },
 ]
