@@ -20,7 +20,10 @@ export function Nav() {
           href="#inicio"
           className="font-display text-paper flex items-center gap-2 pl-2 text-lg tracking-tight uppercase"
         >
-          <span className="text-ember">★</span> Jalapeño
+          <span className="text-ember">★</span>{' '}
+          <span style={{ fontFamily: 'Michroma, sans-serif', fontWeight: 600 }}>
+            Jalapeño
+          </span>
         </a>
 
         <ul className="hidden items-center gap-7 md:flex">

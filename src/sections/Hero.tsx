@@ -41,7 +41,7 @@ export function Hero() {
           </motion.p>
         </div>
 
-        {/* 3D chrome star */}
+        {/* chrome chili hero image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}

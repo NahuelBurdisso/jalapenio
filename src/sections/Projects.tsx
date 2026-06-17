@@ -37,7 +37,7 @@ function Card({ p, i }: { p: Project; i: number }) {
                 {p.kind}
               </span>
             </div>
-            <h3 className="display text-paper mt-3 text-6xl sm:text-7xl">
+            <h3 className="font-sans text-paper mt-3 text-4xl font-bold tracking-[0.04em] uppercase sm:text-5xl">
               {p.client}
             </h3>
             <p className="text-paper/65 mt-5 text-sm leading-relaxed">
