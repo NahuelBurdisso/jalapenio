@@ -44,26 +44,23 @@ public/fonts/   self-hosted fonts
 
 Path alias: `@/` → `src/`.
 
-## Deploy (Hostinger)
+## Deploy (Hostinger — Git nativo, igual que erp-vertix)
 
 CI runs on every push/PR to `main` (`.github/workflows/ci.yml`: typecheck →
-lint → build). On push to `main`, `deploy.yml` builds and uploads `dist/` to
-Hostinger over FTP.
+lint → build).
 
-**One-time setup** — in GitHub → Settings → Secrets and variables → Actions:
+Deploy uses Hostinger's built-in Git integration:
 
-| Secret         | Where to get it                                        |
-| -------------- | ------------------------------------------------------ |
-| `FTP_SERVER`   | hPanel → Files → FTP Accounts → *Hostname* (e.g. `ftp.tudominio.com`) |
-| `FTP_USERNAME` | the FTP account username                               |
-| `FTP_PASSWORD` | the FTP account password                               |
+1. **hPanel → Sitio web → Avanzado → GIT → Crear nuevo repositorio**
+   - Repository: `https://github.com/NahuelBurdisso/jalapenio.git`
+   - Branch: `main`
+2. **Build command:** `npm ci && npm run build`
+3. **Public / output directory:** `dist`
+4. Habilitá **Auto-deployment** para que despliegue en cada push a `main`
+   (Hostinger expone un webhook; opcionalmente conectalo en GitHub → Settings →
+   Webhooks).
 
-Optional repo **variable** `FTP_DIR` (default `public_html/`) — set a subfolder
-for staging.
-
-`public/.htaccess` ships in the build and handles SPA routing (rewrite to
-`index.html`), security headers (CSP) and asset caching on Hostinger's Apache.
-
-> Prefer Hostinger's native Git integration instead? hPanel → Git → connect this
-> repo on `main`, build command `npm ci && npm run build`, public directory `dist`.
+`public/.htaccess` viaja dentro de `dist/` y resuelve el ruteo SPA (rewrite a
+`index.html`), headers de seguridad (CSP) y cache de assets en el Apache de
+Hostinger.
 
