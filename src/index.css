@@ -199,6 +199,24 @@ main section::after {
   background-repeat: repeat;
 }
 
+/* Chrome arrow cursor (set by <CursorLens/>) */
+.cursor-arrow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  margin: -4px 0 0 -3px; /* align SVG tip to the real pointer coordinate */
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
+/* hide native cursor only on fine-pointer devices while the lens is active */
+body.has-lens,
+body.has-lens a,
+body.has-lens button {
+  cursor: none;
+}
+
 /* Focus ring */
 :where(a, button):focus-visible {
   outline: 2px solid var(--color-ember);
