@@ -28,50 +28,50 @@ export function Hero() {
         className="from-char/85 -z-10 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
       />
 
-      {/* founder line */}
-      <motion.p
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: EXPO }}
-        className="text-paper/55 text-[11px] font-bold tracking-[0.28em] uppercase"
-      >
-        Sofía Herrero · Marketing digital
-      </motion.p>
-
-      {/* the claim is the hero */}
-      <div className="relative flex flex-1 items-center">
-        <div className="mx-auto w-full max-w-[1400px]">
-          <KineticClaim />
-        </div>
-      </div>
-
-      {/* value prop + CTAs, asymmetric */}
-      <div className="mx-auto grid w-full max-w-[1400px] items-end gap-7 lg:grid-cols-[1fr_auto]">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col">
+        {/* founder line */}
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5, ease: EXPO }}
-          className="text-paper/65 max-w-md text-base sm:text-lg"
+          transition={{ duration: 0.7, ease: EXPO }}
+          className="text-paper/55 text-[11px] font-bold tracking-[0.28em] uppercase"
         >
-          Marketing digital, contenido y ads para marcas con ganas de prender.
-          Estrategia con actitud y resultados que se ven.
+          Sofía Herrero · Marketing digital
         </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: EXPO }}
-          className="flex flex-wrap items-center gap-3"
-        >
-          <MagneticButton href="#contacto">Hablemos</MagneticButton>
-          <MagneticButton
-            href="#proyectos"
-            variant="ghost"
-            className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
+        {/* the claim is the hero */}
+        <div className="flex flex-1 items-center">
+          <KineticClaim />
+        </div>
+
+        {/* value prop + CTAs */}
+        <div className="grid items-end gap-7 lg:grid-cols-[1fr_auto]">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: EXPO }}
+            className="text-paper/65 max-w-md text-base sm:text-lg"
           >
-            Ver proyectos
-          </MagneticButton>
-        </motion.div>
+            Marketing digital, contenido y ads para marcas con ganas de prender.
+            Estrategia con actitud y resultados que se ven.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: EXPO }}
+            className="flex flex-wrap items-center gap-3"
+          >
+            <MagneticButton href="#contacto">Hablemos</MagneticButton>
+            <MagneticButton
+              href="#proyectos"
+              variant="ghost"
+              className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
+            >
+              Ver proyectos
+            </MagneticButton>
+          </motion.div>
+        </div>
       </div>
 
       {/* tape tagline marquee */}

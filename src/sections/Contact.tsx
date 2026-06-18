@@ -1,4 +1,3 @@
-import { WebglStar } from '@/components/WebglStar'
 import { Reveal } from '@/components/Reveal'
 import { MagneticButton } from '@/components/MagneticButton'
 
@@ -10,7 +9,7 @@ export function Contact() {
   return (
     <section
       id="contacto"
-      className="bg-ink text-paper relative overflow-clip px-6 py-28 sm:px-10 lg:py-40"
+      className="bg-ink text-paper relative overflow-clip px-6 pt-6 pb-28 sm:px-10 lg:pt-8 lg:pb-40"
     >
       <div
         aria-hidden
@@ -20,13 +19,23 @@ export function Contact() {
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute -top-2 right-3 z-0 text-[28vw] lg:text-[18rem]"
       >
-        05
+        05.
       </span>
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
         <Reveal>
-          <div className="mx-auto mb-6 h-44 w-44 sm:h-56 sm:w-56">
-            <WebglStar className="h-full w-full" />
+          <div className="mx-auto mb-6 h-72 w-72 sm:h-[28rem] sm:w-[28rem]">
+            {/* background baked to the section color (#1e1d1c) so the chili
+                reads as floating; reliable H.264, plays everywhere */}
+            <video
+              src="/chili-3d.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-hidden
+              className="h-full w-full object-contain"
+            />
           </div>
         </Reveal>
         <Reveal delay={0.05}>

@@ -48,7 +48,7 @@ export function Brand() {
         aria-hidden
         className="display stroke-text text-ink/15 pointer-events-none absolute top-8 right-4 z-0 text-[26vw] lg:text-[15rem]"
       >
-        03
+        03.
       </span>
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -58,8 +58,8 @@ export function Brand() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display text-[16vw] leading-[0.82] sm:text-8xl lg:text-[9rem]">
-            Jala<span className="text-chili">peño</span>
+          <h2 className="display text-chili text-[16vw] leading-[0.82] sm:text-8xl lg:text-[9rem]">
+            Jalapeño
           </h2>
         </Reveal>
 
@@ -90,13 +90,16 @@ export function Brand() {
           {/* services */}
           <Reveal delay={0.12}>
             <ul className="grid gap-x-6 gap-y-1 sm:grid-cols-2">
-              {SERVICES.map((s, i) => (
+              {SERVICES.map((s) => (
                 <li
                   key={s}
                   className="group border-ink/10 flex items-center gap-3 border-b py-3"
                 >
-                  <span className="display text-chili text-sm tabular-nums">
-                    {String(i + 1).padStart(2, '0')}
+                  <span
+                    aria-hidden
+                    className="text-chili text-lg leading-none font-bold"
+                  >
+                    *
                   </span>
                   <span className="text-ink/80 group-hover:text-chili text-sm font-medium transition-colors">
                     {s}

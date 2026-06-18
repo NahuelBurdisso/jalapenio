@@ -100,13 +100,13 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="bg-char relative overflow-clip px-6 py-24 sm:px-10 lg:py-36"
+      className="bg-char relative overflow-clip px-6 pt-24 pb-6 sm:px-10 lg:pt-36 lg:pb-8"
     >
       <span
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
       >
-        04
+        04.
       </span>
 
       <div className="relative z-10 mx-auto max-w-7xl">

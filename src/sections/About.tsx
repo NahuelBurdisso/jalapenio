@@ -11,7 +11,7 @@ export function About() {
         aria-hidden
         className="display stroke-text text-paper/20 pointer-events-none absolute -top-4 right-2 z-0 text-[28vw] sm:text-[20vw] lg:text-[16rem]"
       >
-        01
+        02.
       </span>
 
       <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
