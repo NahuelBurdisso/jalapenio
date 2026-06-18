@@ -1,6 +1,5 @@
 import { useLenis } from '@/hooks/useLenis'
 import { Reflectors } from '@/components/Reflectors'
-import { CursorLens } from '@/components/CursorLens'
 import { Nav } from '@/components/Nav'
 import { Hero } from '@/sections/Hero'
 import { About } from '@/sections/About'
@@ -12,7 +11,6 @@ function App() {
   useLenis()
   return (
     <>
-      <CursorLens />
       <Reflectors />
       <Nav />
       <main>
