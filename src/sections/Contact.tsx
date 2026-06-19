@@ -24,9 +24,11 @@ export function Contact() {
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
         <Reveal>
-          <div className="mx-auto mb-6 h-72 w-72 sm:h-[28rem] sm:w-[28rem]">
+          <div className="mx-auto mb-2 h-56 w-72 overflow-hidden sm:mb-3 sm:h-[23rem] sm:w-[28rem]">
             {/* background baked to the section color (#1e1d1c) so the chili
-                reads as floating; reliable H.264, plays everywhere */}
+                reads as floating. box hugs the chili (cover crops the empty
+                margins) so it stays the same size with less surrounding
+                space. reliable H.264, plays everywhere */}
             <video
               src="/chili-3d.mp4"
               autoPlay
@@ -34,7 +36,7 @@ export function Contact() {
               muted
               playsInline
               aria-hidden
-              className="h-full w-full object-contain"
+              className="h-full w-full scale-[1.55] object-cover"
             />
           </div>
         </Reveal>
