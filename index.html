@@ -21,11 +21,13 @@
     />
     <meta property="og:locale" content="es_AR" />
 
+    <!-- LCP hero background: fetch early -->
+    <link rel="preload" as="image" href="/fondo.webp" fetchpriority="high" />
     <!-- Fonts: Anton (display) + Public Sans (body, brand) + Michroma (nav wordmark) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Michroma&family=Public+Sans:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Michroma&family=Public+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>

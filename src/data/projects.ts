@@ -30,19 +30,19 @@ export const PROJECTS: Project[] = [
     ],
     images: [
       {
-        src: '/projects/amnesia-1.jpg',
+        src: '/projects/amnesia-1.webp',
         alt: 'Amnesia — grilla de contenido “buzo o suéter”',
       },
       {
-        src: '/projects/amnesia-2.jpg',
+        src: '/projects/amnesia-2.webp',
         alt: 'Amnesia — sorteo campera puffer, collage halftone',
       },
       {
-        src: '/projects/amnesia-3.jpg',
+        src: '/projects/amnesia-3.webp',
         alt: 'Amnesia — promo Día del Amigo 2x1',
       },
       {
-        src: '/projects/amnesia-4.jpg',
+        src: '/projects/amnesia-4.webp',
         alt: 'Amnesia — campaña Día del Padre, dirección western',
       },
     ],
@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
     ],
     images: [
       {
-        src: '/projects/marea-1.jpg',
+        src: '/projects/marea-1.webp',
         alt: 'Marea — desfile Paseo del Jockey, backstage y looks',
       },
     ],
@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     ],
     images: [
       {
-        src: '/projects/metaads-1.jpg',
+        src: '/projects/metaads-1.webp',
         alt: 'Meta Ads — campaña promo Mes de Mayo, liquidación 50% off',
       },
     ],

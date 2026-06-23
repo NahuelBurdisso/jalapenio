@@ -97,7 +97,7 @@ export function Brand() {
                 >
                   <span
                     aria-hidden
-                    className="text-chili text-lg leading-none font-bold"
+                    className="text-ink/30 group-hover:text-chili text-lg leading-none font-bold transition-colors"
                   >
                     *
                   </span>

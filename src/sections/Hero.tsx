@@ -15,7 +15,7 @@ export function Hero() {
       <div
         aria-hidden
         className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/fondo.jpg')" }}
+        style={{ backgroundImage: "url('/fondo.webp')" }}
       />
       {/* legibility scrim: darkest on the left where the type sits */}
       <div
