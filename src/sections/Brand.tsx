@@ -1,37 +1,27 @@
 import { Reveal } from '@/components/Reveal'
 import { SERVICES } from '@/data/projects'
-import { cn } from '@/lib/cn'
 
-function Lockup({ tone }: { tone: 'paper' | 'chili' | 'ink' }) {
-  const bg =
-    tone === 'paper' ? 'bg-paper' : tone === 'chili' ? 'bg-chili' : 'bg-ink'
-  const word =
-    tone === 'chili'
-      ? 'text-paper'
-      : tone === 'ink'
-        ? 'text-paper'
-        : 'text-chili'
-  return (
-    <div
-      className={cn(
-        'flex aspect-[4/3] items-center justify-center gap-2 rounded-sm',
-        bg,
-      )}
-    >
-      <img
-        src="/estrella.png"
-        alt=""
-        aria-hidden
-        className={cn(
-          'h-9 w-auto shrink-0 object-contain',
-          // chrome reads light, so darken it on the white lockup for contrast
-          tone === 'paper' && 'brightness-[0.35] contrast-125',
-        )}
-      />
-      <span className={cn('display text-2xl sm:text-3xl', word)}>Jalapeño</span>
-    </div>
-  )
-}
+// brand-identity lockups (real assets from the brand manual)
+const LOCKUPS: {
+  src?: string
+  video?: string
+  poster?: string
+  alt: string
+}[] = [
+  {
+    video: '/marca-video.mp4',
+    poster: '/marca-video-poster.jpg',
+    alt: 'Video del proceso de marca de jalapeño',
+  },
+  {
+    src: '/marca-rojo.webp',
+    alt: 'Logo jalapeño en blanco sobre rojo — si no arde, no impacta',
+  },
+  {
+    src: '/marca-negro.webp',
+    alt: 'Isotipo jalapeño — letra J con estrella cromada sobre negro',
+  },
+]
 
 export function Brand() {
   return (
@@ -113,9 +103,35 @@ export function Brand() {
         {/* logo lockups */}
         <Reveal delay={0.1}>
           <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <Lockup tone="paper" />
-            <Lockup tone="chili" />
-            <Lockup tone="ink" />
+            {LOCKUPS.map((l) => (
+              <div
+                key={l.alt}
+                className="ring-ink/10 overflow-hidden rounded-sm ring-1"
+              >
+                {l.video ? (
+                  <video
+                    src={l.video}
+                    poster={l.poster}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-label={l.alt}
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={l.src}
+                    alt={l.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={900}
+                    height={675}
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>
