@@ -27,12 +27,18 @@ export function Brand() {
   return (
     <section
       id="marca"
-      className="bg-paper text-ink relative overflow-clip px-6 py-24 sm:px-10 lg:py-36"
+      className="bg-paper text-ink relative z-[2] overflow-clip px-6 py-24 sm:px-10 lg:py-36"
     >
-      {/* fire glow from bottom-right */}
+      {/* crinkled white-plastic texture background */}
       <div
         aria-hidden
-        className="from-amber via-ember/60 pointer-events-none absolute right-[-5%] bottom-[-10%] h-[55vh] w-[40vh] rounded-full bg-gradient-to-t to-transparent opacity-70 blur-[90px]"
+        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/fondo03.webp')" }}
+      />
+      {/* soft white veil: tames plastic highlights so dark type stays crisp */}
+      <div
+        aria-hidden
+        className="bg-paper/35 absolute inset-0 -z-10"
       />
       <span
         aria-hidden
