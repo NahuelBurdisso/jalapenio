@@ -10,19 +10,21 @@ const ACCENT: Record<string, { text: string; chip: string; bar: string }> = {
   ember: { text: 'text-ember', chip: 'bg-ember text-paper', bar: 'bg-ember' },
 }
 
+type Media =
+  | { kind: 'img'; src: string; alt: string }
+  | { kind: 'video'; src: string; poster?: string; alt: string }
+
 function Card({ p, i }: { p: Project; i: number }) {
   const a = ACCENT[p.accent] ?? ACCENT.ember
-  const tilt = i % 2 === 0 ? 'lg:rotate-[-1deg]' : 'lg:rotate-[1.2deg]'
+  const media: Media[] = [
+    ...p.images.map((m) => ({ kind: 'img' as const, ...m })),
+    ...(p.videos ?? []).map((m) => ({ kind: 'video' as const, ...m })),
+  ]
   return (
     <Reveal delay={0.05 * i}>
-      <article
-        className={cn(
-          'group border-paper/10 bg-ink/70 relative overflow-clip rounded-xl border p-7 backdrop-blur-sm transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-10 lg:hover:rotate-0',
-          tilt,
-        )}
-      >
+      <article className="group border-paper/10 bg-ink/70 relative z-0 rounded-xl border p-7 backdrop-blur-sm hover:z-30 sm:p-10">
         <div className={cn('absolute inset-x-0 top-0 h-1', a.bar)} />
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="lg:max-w-md">
             <div className="flex items-center gap-4">
               <span className="display stroke-text text-paper/40 text-5xl">
@@ -51,46 +53,46 @@ function Card({ p, i }: { p: Project; i: number }) {
             </p>
           </div>
 
-          <ul className="flex shrink-0 flex-col gap-2 lg:w-72">
-            {p.highlights.map((h) => (
-              <li
-                key={h}
-                className="border-paper/10 text-paper/70 flex items-start gap-2 border-b pb-2 text-sm"
-              >
-                <span className={cn('mt-1 text-xs', a.text)}>·</span>
-                {h}
-              </li>
-            ))}
-          </ul>
+          {media.length > 0 && (
+            <div className="mt-8 flex flex-1 flex-wrap items-center justify-center gap-3 lg:mt-0">
+              {media.map((m) => (
+                <div key={m.src} className="relative h-36 w-36 shrink-0">
+                  <figure
+                    className={cn(
+                      'ring-paper/15 bg-char absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg p-1 shadow-[0_12px_24px_-10px_rgba(0,0,0,0.7)] ring-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-50 hover:shadow-[0_36px_70px_-18px_rgba(0,0,0,0.85)]',
+                      m.kind === 'img'
+                        ? 'hover:h-[12.5rem] hover:w-[22rem]'
+                        : 'hover:h-[22rem] hover:w-[12.375rem]',
+                    )}
+                  >
+                    {m.kind === 'img' ? (
+                      <img
+                        src={m.src}
+                        alt={m.alt}
+                        loading="lazy"
+                        decoding="async"
+                        width={1600}
+                        height={900}
+                        className="h-full w-full rounded-[5px] object-cover"
+                      />
+                    ) : (
+                      <video
+                        src={m.src}
+                        poster={m.poster}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        aria-label={m.alt}
+                        className="h-full w-full rounded-[5px] object-cover"
+                      />
+                    )}
+                  </figure>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-
-        {p.images.length > 0 && (
-          <div
-            className={cn(
-              'mt-8 grid gap-3',
-              p.images.length === 1
-                ? 'grid-cols-1'
-                : 'grid-cols-2 lg:grid-cols-4',
-            )}
-          >
-            {p.images.map((img) => (
-              <figure
-                key={img.src}
-                className="ring-paper/10 group/img bg-char/60 overflow-clip rounded-lg p-1 ring-1"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={1600}
-                  height={900}
-                  className="aspect-video h-full w-full rounded-[5px] object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.04]"
-                />
-              </figure>
-            ))}
-          </div>
-        )}
       </article>
     </Reveal>
   )
