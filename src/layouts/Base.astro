@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css'
 import { SITE, jsonLd } from '@/lib/seo'
+import Analytics from '@vercel/analytics/astro'
 
 interface Props {
   title?: string
@@ -94,5 +95,6 @@ const ogImage = SITE.url + SITE.ogImage
         <p>Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
       </div>
     </noscript>
+    <Analytics />
   </body>
 </html>
