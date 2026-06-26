@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* ═══════════════════════════════════════════════════════════════════
-   Self-hosted fonts (latin subset, woff2). No Google Fonts CDN.
+   Self-hosted Google fonts (woff2). No Google Fonts CDN.
    Public Sans is a variable font — one file covers weights 100–900.
    ═══════════════════════════════════════════════════════════════════ */
 @font-face {
@@ -17,13 +17,6 @@
   font-weight: 100 900;
   font-display: swap;
   src: url('/fonts/public-sans-variable.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Public Sans';
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('/fonts/public-sans-italic-variable.woff2') format('woff2');
 }
 
 /* ═══════════════════════════════════════════════════════════════════

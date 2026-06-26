@@ -7,6 +7,7 @@ export const SITE = {
   locale: 'es_AR',
   lang: 'es',
   ogImage: '/og-image.png',
+  ogImageAlt: 'Jalapeño Studio — Marketing Digital. si no arde, no impacta.',
   themeColor: '#1e1d1c',
   // Contact / socials — confirm real values with Sofía before launch.
   email: 'hola@jalapeno.studio',
