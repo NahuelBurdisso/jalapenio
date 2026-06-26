@@ -20,7 +20,7 @@ export function KineticClaim() {
         <span key={i} className="block overflow-clip pb-[0.06em]">
           <span
             className="claim-line block"
-            style={{ transitionDelay: `${0.1 + i * 0.12}s` }}
+            style={{ animationDelay: `${0.1 + i * 0.12}s` }}
           >
             {line}
           </span>

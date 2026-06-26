@@ -266,18 +266,24 @@ button:focus-visible {
 }
 
 /* Kinetic claim mask-reveal: visible by default; mask + slide only with JS. */
+/* Hero claim mask: above the fold, so it animates in on load via keyframe
+   (no IntersectionObserver — that fails while the lines are translated down).
+   No-JS: without the `.js` class the text just sits visible. */
 .js .claim-line {
-  transform: translateY(110%);
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: claim-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
-.js .claim-line.is-visible {
-  transform: translateY(0);
+@keyframes claim-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .claim-line,
-  .js .claim-line.is-visible {
+  .js .claim-line {
+    animation: none;
     transform: none;
-    transition: none;
   }
 }
 
