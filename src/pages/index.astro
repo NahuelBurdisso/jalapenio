@@ -1,9 +1,8 @@
 ---
 import Base from '@/layouts/Base.astro'
 import { Reflectors } from '@/components/Reflectors'
-import { Grain } from '@/components/Grain'
 import { Nav } from '@/components/Nav'
-import { Hero } from '@/sections/Hero'
+import Hero from '@/sections/Hero.astro'
 import { About } from '@/sections/About'
 import { Brand } from '@/sections/Brand'
 import { Projects } from '@/sections/Projects'
@@ -14,10 +13,9 @@ import RevealScript from '@/components/RevealScript.astro'
 
 <Base>
   <Reflectors />
-  <Grain />
-  <Nav client:load />
+  <Nav client:idle />
   <main>
-    <Hero client:load />
+    <Hero />
     <About client:visible />
     <Brand client:visible />
     <Projects client:visible />

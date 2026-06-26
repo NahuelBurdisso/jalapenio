@@ -26,10 +26,19 @@ const ogImage = SITE.url + SITE.ogImage
       document.documentElement.classList.add('js')
     </script>
 
-    <!-- Self-hosted display font (preload to avoid FOUT on hero) -->
+    <!-- Hero background: preload as high-priority image so it's not an LCP gate -->
+    <link rel="preload" href="/fondo.webp" as="image" />
+    <!-- Self-hosted fonts (preload to avoid FOUT + late LCP repaint on hero) -->
     <link
       rel="preload"
       href="/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/public-sans-variable.woff2"
       as="font"
       type="font/woff2"
       crossorigin

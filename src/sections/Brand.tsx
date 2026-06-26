@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { LazyVideo } from '@/components/LazyVideo'
 import { SERVICES } from '@/data/projects'
 
 // brand-identity lockups (real assets from the brand manual)
@@ -115,13 +116,9 @@ export function Brand() {
                 className="ring-ink/10 overflow-hidden rounded-sm ring-1"
               >
                 {l.video ? (
-                  <video
+                  <LazyVideo
                     src={l.video}
                     poster={l.poster}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                     aria-label={l.alt}
                     className="aspect-[4/3] h-full w-full object-cover"
                   />

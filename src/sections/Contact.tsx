@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/Reveal'
 import { MagneticButton } from '@/components/MagneticButton'
+import { LazyVideo } from '@/components/LazyVideo'
 
 const PHONE = '3541523489'
 const PHONE_PRETTY = '3541-523489'
@@ -29,12 +30,8 @@ export function Contact() {
                 reads as floating. box hugs the chili (cover crops the empty
                 margins) so it stays the same size with less surrounding
                 space. reliable H.264, plays everywhere */}
-            <video
+            <LazyVideo
               src="/chili-3d.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
               aria-hidden
               className="h-full w-full scale-[1.55] object-cover"
             />
