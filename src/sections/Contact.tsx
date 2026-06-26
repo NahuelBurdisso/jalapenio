@@ -70,7 +70,7 @@ export function Contact() {
           <span className="text-ember">★</span> Jalapeño
         </span>
         <span>Sofía Herrero · Marketing Digital · Crecimiento de marcas</span>
-        <span>© {2026}</span>
+        <span>© {new Date().getFullYear()}</span>
       </footer>
     </section>
   )
