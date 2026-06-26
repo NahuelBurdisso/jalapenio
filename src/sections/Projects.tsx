@@ -102,8 +102,20 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="bg-char relative overflow-clip px-6 pt-24 pb-6 sm:px-10 lg:pt-36 lg:pb-8"
+      className="bg-char relative z-[2] overflow-clip px-6 pt-24 pb-6 sm:px-10 lg:pt-36 lg:pb-8"
     >
+      {/* red lacquer-box background — stretched so the box depth stays
+          symmetric (ceiling at top, floor at bottom) like the original photo */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-20 bg-[length:100%_100%] bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/fondo4.webp')" }}
+      />
+      {/* soft scrim: deepens top/bottom so the heading + cards read on the red */}
+      <div
+        aria-hidden
+        className="from-char/35 via-char/5 to-char/35 absolute inset-0 -z-10 bg-gradient-to-b"
+      />
       <span
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
@@ -113,7 +125,7 @@ export function Projects() {
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal>
-          <p className="text-ember text-[11px] font-bold tracking-[0.3em] uppercase">
+          <p className="text-paper text-[11px] font-bold tracking-[0.3em] uppercase">
             Casos
           </p>
         </Reveal>
