@@ -1,4 +1,24 @@
 ---
 import Base from '@/layouts/Base.astro'
+import { Reflectors } from '@/components/Reflectors'
+import { Grain } from '@/components/Grain'
+import { Nav } from '@/components/Nav'
+import { Hero } from '@/sections/Hero'
+import { About } from '@/sections/About'
+import { Brand } from '@/sections/Brand'
+import { Projects } from '@/sections/Projects'
+import { Contact } from '@/sections/Contact'
 ---
-<Base><h1 id="inicio">stub</h1></Base>
+
+<Base>
+  <Reflectors />
+  <Grain />
+  <Nav client:load />
+  <main>
+    <Hero client:load />
+    <About client:visible />
+    <Brand client:visible />
+    <Projects client:visible />
+    <Contact client:visible />
+  </main>
+</Base>
