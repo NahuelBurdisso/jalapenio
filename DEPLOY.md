@@ -31,15 +31,35 @@ that replaced the old Hostinger `deploy`-branch workflow.
 
 ## 3. Hostinger — point DNS at Vercel
 
-hPanel → **Domains → jalapeno.studio → DNS / Nameservers → DNS records**:
+hPanel → **Domains → jalapeno.studio → DNS / Nameservers → DNS records**.
+Keep Hostinger's nameservers (`*.dns-parking.com`) — do **not** switch to Vercel
+nameservers. Only edit records.
 
-1. **Remove** the old `A` record(s) for `@` that point to Hostinger hosting (and any old
-   `www` record that points to Hostinger).
-2. Add:  `A`  `@`  →  `76.76.21.21`
-3. Add:  `CNAME`  `www`  →  `cname.vercel-dns.com`
-4. Save. Propagation is usually minutes, but can take up to ~24–48h.
-5. Once DNS resolves, Vercel auto-provisions SSL (HTTPS). No action needed.
+**End state — exactly these two records, nothing else on `@`/`www`:**
 
+| Type  | Name | Content                                   |
+| ----- | ---- | ----------------------------------------- |
+| A     | @    | `216.198.79.1`                            |
+| CNAME | www  | `eb0949b20feccb2e.vercel-dns-017.com`     |
+
+To get there:
+
+1. **Delete** `AAAA @` (Hostinger IPv6, e.g. `2a02:4780:...`) — **critical**: if left,
+   the apex keeps resolving to Hostinger over IPv6 and Vercel shows "Invalid
+   Configuration".
+2. **Delete** any stray records like `A ftp → 76.76.21.21` and any old `A`/`AAAA` on
+   `@` or `www` pointing at Hostinger (`62.72.62.66` / the IPv6).
+3. **Set** `A @` → `216.198.79.1`.
+4. **Set** `CNAME www` → `eb0949b20feccb2e.vercel-dns-017.com` (Name is just `www`; the
+   Vercel value is the **Content/target**, no trailing dot — a trailing dot triggers
+   "Invalid RRset name").
+5. Save. Propagation is usually minutes, up to ~24–48h.
+6. Once DNS resolves, Vercel flips both domains Invalid → Valid and auto-provisions SSL.
+
+> Values are the project-specific records Vercel issued for jalapeno.studio (its new
+> IP-range expansion). The legacy `76.76.21.21` / `cname.vercel-dns.com` still work but
+> the above are what Vercel currently recommends.
+>
 > Registrar stays Hostinger — we are **not** transferring the domain or changing
 > nameservers, only the records. Fully reversible.
 
