@@ -1,5 +1,6 @@
 export const SITE = {
-  url: 'https://jalapeno.studio',
+  // Primary URL is www (the apex 308-redirects to www on Vercel).
+  url: 'https://www.jalapeno.studio',
   name: 'Jalapeño Studio',
   title: 'Jalapeño Studio — Marketing Digital',
   description:
@@ -9,9 +10,11 @@ export const SITE = {
   ogImage: '/og-image.png',
   ogImageAlt: 'Jalapeño Studio — Marketing Digital. si no arde, no impacta.',
   themeColor: '#1e1d1c',
-  // Contact / socials — confirm real values with Sofía before launch.
-  email: 'hola@jalapeno.studio',
-  sameAs: [] as string[], // e.g. ['https://instagram.com/...']
+  // Real contact channels (the ones shown on the site).
+  phone: '+5493541523489',
+  whatsapp: 'https://wa.me/5493541523489',
+  instagram: 'https://instagram.com/herreropipi',
+  sameAs: ['https://instagram.com/herreropipi'],
 }
 
 export const jsonLd = {
@@ -21,7 +24,7 @@ export const jsonLd = {
   url: SITE.url,
   description: SITE.description,
   image: SITE.url + SITE.ogImage,
-  email: SITE.email,
+  telephone: SITE.phone,
   founder: { '@type': 'Person', name: 'Sofía Herrero' },
   areaServed: 'AR',
   sameAs: SITE.sameAs,
