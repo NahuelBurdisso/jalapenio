@@ -26,15 +26,28 @@ const ogImage = SITE.url + SITE.ogImage
       document.documentElement.classList.add('js')
     </script>
 
+    <!-- Self-hosted display font (preload to avoid FOUT on hero) -->
+    <link
+      rel="preload"
+      href="/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={SITE.locale} />
 
@@ -43,6 +56,7 @@ const ogImage = SITE.url + SITE.ogImage
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -53,7 +67,11 @@ const ogImage = SITE.url + SITE.ogImage
     <!-- Google Search Console verification (paste token before launch) -->
     <!-- <meta name="google-site-verification" content="REPLACE_ME" /> -->
 
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+      is:inline
+    />
   </head>
   <body>
     <a href="#inicio" class="skip-link">Saltar al contenido</a>

@@ -78,15 +78,21 @@ function Card({ p, i }: { p: Project; i: number }) {
                 key={img.src}
                 className="ring-paper/10 group/img bg-char/60 overflow-clip rounded-lg p-1 ring-1"
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  decoding="async"
-                  width={1600}
-                  height={900}
-                  className="aspect-video h-full w-full rounded-[5px] object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.04]"
-                />
+                <picture>
+                  <source
+                    srcSet={img.src.replace(/\.jpg$/, '.webp')}
+                    type="image/webp"
+                  />
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={1600}
+                    height={900}
+                    className="aspect-video h-full w-full rounded-[5px] object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.04]"
+                  />
+                </picture>
               </figure>
             ))}
           </div>
