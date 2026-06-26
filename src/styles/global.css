@@ -234,6 +234,22 @@ html.lenis body {
   }
 }
 
+/* Kinetic claim mask-reveal: visible by default; mask + slide only with JS. */
+.js .claim-line {
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js .claim-line.is-visible {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .claim-line,
+  .js .claim-line.is-visible {
+    transform: none;
+    transition: none;
+  }
+}
+
 .skip-link {
   position: absolute;
   left: -9999px;

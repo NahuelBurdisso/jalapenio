@@ -31,18 +31,12 @@ export function KineticClaim() {
     >
       {lines.map((line, i) => (
         <span key={i} className="block overflow-clip">
-          <motion.span
-            className="block"
-            initial={{ y: '110%' }}
-            animate={{ y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.1 + i * 0.12,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+          <span
+            className="claim-line block"
+            style={{ transitionDelay: `${0.1 + i * 0.12}s` }}
           >
             {line}
-          </motion.span>
+          </span>
         </span>
       ))}
     </motion.h1>
