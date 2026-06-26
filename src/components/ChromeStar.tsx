@@ -1,5 +1,11 @@
 import { useRef } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from 'motion/react'
 import { cn } from '@/lib/cn'
 
 /**
@@ -15,6 +21,7 @@ export function ChromeStar({
   idle?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
+  const reduceMotion = useReducedMotion()
   const mx = useMotionValue(0)
   const my = useMotionValue(0)
   const rx = useSpring(useTransform(my, [-0.5, 0.5], [22, -22]), {
@@ -50,7 +57,7 @@ export function ChromeStar({
         className="h-full w-full"
       >
         <motion.div
-          animate={idle ? { rotate: 360 } : undefined}
+          animate={idle && !reduceMotion ? { rotate: 360 } : undefined}
           transition={{ duration: 38, repeat: Infinity, ease: 'linear' }}
           className="h-full w-full drop-shadow-[0_22px_40px_rgba(0,0,0,0.55)]"
         >

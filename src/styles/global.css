@@ -217,6 +217,12 @@ html.lenis body {
   border-radius: 2px;
 }
 
+/* Global keyboard-focus fallback for any other focusable element */
+:focus-visible {
+  outline: 2px solid var(--color-paper, #f5f0e6);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
