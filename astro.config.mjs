@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 // Pure static output (default). Vercel auto-detects Astro and serves dist/.
 // No adapter needed unless we later add SSR/ISR/analytics.
 export default defineConfig({
-  site: 'https://jalapeno.studio',
+  site: 'https://www.jalapeno.studio',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
