@@ -211,3 +211,44 @@ html.lenis body {
     animation: none;
   }
 }
+
+/* Reveal: visible by default (no-JS / crawlers see content).
+   Only when JS is present does content start hidden, then animate in. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #1e1d1c;
+  color: #f5f0e6;
+  padding: 0.75rem 1rem;
+}
+.skip-link:focus {
+  left: 0;
+}
+.noscript-fallback {
+  padding: 2rem;
+  color: #f5f0e6;
+  background: #1e1d1c;
+  text-align: center;
+}
