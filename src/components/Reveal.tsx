@@ -1,14 +1,15 @@
-import { motion } from 'motion/react'
-import type { ReactNode } from 'react'
+import { cn } from '@/lib/cn'
+import type { ReactNode, CSSProperties } from 'react'
 
 /**
- * Heavy fade-up + blur entry, fired on scroll-into-view (once). Honors
- * reduced-motion automatically via the motion package.
+ * Scroll-reveal wrapper. Content is fully visible by default (no inline
+ * opacity), so it renders correctly without JS. When JS is present, the
+ * `.js .reveal` CSS rule hides it until `is-visible` is added on scroll.
  */
 export function Reveal({
   children,
   delay = 0,
-  y = 40,
+  y,
   className,
   as = 'div',
 }: {
@@ -18,16 +19,15 @@ export function Reveal({
   className?: string
   as?: 'div' | 'li' | 'span'
 }) {
-  const MotionTag = motion[as]
+  const Tag = as
+  const style: CSSProperties | undefined = delay
+    ? { transitionDelay: `${delay}s` }
+    : undefined
+  // `y` kept for API compatibility; reveal distance is handled in CSS.
+  void y
   return (
-    <MotionTag
-      className={className}
-      initial={{ opacity: 0, y, filter: 'blur(8px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: true, margin: '-12% 0px' }}
-      transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <Tag className={cn('reveal', className)} style={style}>
       {children}
-    </MotionTag>
+    </Tag>
   )
 }

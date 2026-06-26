@@ -8,6 +8,7 @@ import { About } from '@/sections/About'
 import { Brand } from '@/sections/Brand'
 import { Projects } from '@/sections/Projects'
 import { Contact } from '@/sections/Contact'
+import RevealScript from '@/components/RevealScript.astro'
 ---
 
 <Base>
@@ -21,4 +22,5 @@ import { Contact } from '@/sections/Contact'
     <Projects client:visible />
     <Contact client:visible />
   </main>
+  <RevealScript />
 </Base>
