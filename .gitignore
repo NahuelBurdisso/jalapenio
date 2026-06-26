@@ -32,3 +32,10 @@ dist-ssr
 
 # brainstorm visual companion
 .superpowers/
+
+# Claude Code local tooling
+.claude/
+
+# local image backups (no deploy)
+_backup-originales/
+credencial-original-backup.png

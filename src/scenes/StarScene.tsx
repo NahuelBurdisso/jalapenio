@@ -7,7 +7,8 @@ const reducedMotion =
   typeof window !== 'undefined' &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-/** 4-point chrome sparkle — the brand object as an extruded 3D mesh. */
+/** Chrome jalapeño — brand object as a real 3D mesh, shape copied from the
+ *  reference photo: fat curved body, pointed curling tip, prominent bent stem. */
 function PepperMesh(props: ThreeElements['group']) {
   const group = useRef<THREE.Group>(null)
   const spin = useRef<THREE.Group>(null)
@@ -17,48 +18,64 @@ function PepperMesh(props: ThreeElements['group']) {
       new THREE.MeshStandardMaterial({
         color: '#d6d6dc',
         metalness: 1,
-        roughness: 0.22,
-        envMapIntensity: 2,
+        roughness: 0.18,
+        envMapIntensity: 2.2,
       }),
     [],
   )
 
-  // jalapeño body: revolve a profile, then bend into a chili curve
+  // jalapeño body: revolve a profile, add lengthwise ridges, then bend
   const bodyGeo = useMemo(() => {
+    // radius (x) vs height (y): pointed tip at -1, fat shoulder near +1
     const profile = (
       [
-        [0.001, -1.0],
+        [0.005, -1.0],
         [0.1, -0.85],
-        [0.19, -0.62],
-        [0.27, -0.32],
-        [0.33, 0.0],
-        [0.37, 0.32],
-        [0.39, 0.58],
-        [0.34, 0.78],
-        [0.25, 0.9],
-        [0.14, 0.98],
-        [0.09, 1.04],
+        [0.21, -0.65],
+        [0.31, -0.45],
+        [0.39, -0.25],
+        [0.44, -0.05],
+        [0.47, 0.18],
+        [0.46, 0.4],
+        [0.42, 0.6],
+        [0.35, 0.76],
+        [0.26, 0.88],
+        [0.15, 0.97],
+        [0.08, 1.03],
       ] as const
     ).map(([x, y]) => new THREE.Vector2(x, y))
 
-    const geo = new THREE.LatheGeometry(profile, 56)
+    const geo = new THREE.LatheGeometry(profile, 80)
     const pos = geo.attributes.position
     const v = new THREE.Vector3()
     for (let i = 0; i < pos.count; i++) {
       v.fromBufferAttribute(pos, i)
       const t = (v.y + 1) / 2 // 0 = tip, 1 = top
-      v.x += 0.45 * Math.pow(1 - t, 2) // tip curls sideways → chili curve
+      // jalapeño ridges: gentle 5-lobe ripple, fading out at the tip
+      const theta = Math.atan2(v.z, v.x)
+      const r = Math.hypot(v.x, v.z)
+      const ridged = r * (1 + 0.045 * Math.cos(5 * theta) * t)
+      v.x = Math.cos(theta) * ridged
+      v.z = Math.sin(theta) * ridged
+      // C-curve: tip curls sideways (clamp base so pow never sees a negative)
+      v.x += 0.5 * Math.pow(Math.max(0, 1 - t), 1.9)
       pos.setXYZ(i, v.x, v.y, v.z)
     }
     geo.computeVertexNormals()
     return geo
   }, [])
 
-  // little stem at the top
-  const stemGeo = useMemo(
-    () => new THREE.CylinderGeometry(0.028, 0.075, 0.4, 14),
-    [],
-  )
+  // curved, slightly knobby stem swept along a bent path
+  const stemGeo = useMemo(() => {
+    const curve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(0.05, 0.0, 0),
+      new THREE.Vector3(0.05, 0.16, 0.01),
+      new THREE.Vector3(-0.02, 0.3, 0.02),
+      new THREE.Vector3(-0.13, 0.4, 0.0),
+      new THREE.Vector3(-0.22, 0.44, -0.02),
+    ])
+    return new THREE.TubeGeometry(curve, 40, 0.08, 16, false)
+  }, [])
 
   useFrame((state, dt) => {
     if (reducedMotion) return
@@ -86,12 +103,12 @@ function PepperMesh(props: ThreeElements['group']) {
       >
         <group ref={spin}>
           <mesh geometry={bodyGeo} material={chrome} />
-          <mesh
-            geometry={stemGeo}
-            material={chrome}
-            position={[0.02, 1.2, 0]}
-            rotation={[0, 0, -0.35]}
-          />
+          {/* knobby cap where stem meets the body */}
+          <mesh material={chrome} position={[0.06, 1.0, 0]}>
+            <sphereGeometry args={[0.1, 20, 20]} />
+          </mesh>
+          {/* curved stem sweeping up from the shoulder */}
+          <mesh geometry={stemGeo} material={chrome} position={[0.04, 1.02, 0]} />
         </group>
       </Float>
     </group>

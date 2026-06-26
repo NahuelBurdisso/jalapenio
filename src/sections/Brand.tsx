@@ -1,46 +1,50 @@
-import { ChromeStar } from '@/components/ChromeStar'
 import { Reveal } from '@/components/Reveal'
 import { SERVICES } from '@/data/projects'
-import { cn } from '@/lib/cn'
 
-function Lockup({ tone }: { tone: 'paper' | 'chili' | 'ink' }) {
-  const bg =
-    tone === 'paper' ? 'bg-paper' : tone === 'chili' ? 'bg-chili' : 'bg-ink'
-  const word =
-    tone === 'chili'
-      ? 'text-paper'
-      : tone === 'ink'
-        ? 'text-paper'
-        : 'text-chili'
-  return (
-    <div
-      className={cn(
-        'flex aspect-[4/3] items-center justify-center gap-2 rounded-sm',
-        bg,
-      )}
-    >
-      <ChromeStar className="h-10 w-10 shrink-0" idle={false} />
-      <span className={cn('display text-2xl sm:text-3xl', word)}>Jalapeño</span>
-    </div>
-  )
-}
+// brand-identity lockups (real assets from the brand manual)
+const LOCKUPS: {
+  src?: string
+  video?: string
+  poster?: string
+  alt: string
+}[] = [
+  {
+    video: '/marca-video.mp4',
+    poster: '/marca-video-poster.jpg',
+    alt: 'Video del proceso de marca de jalapeño',
+  },
+  {
+    src: '/marca-rojo.webp',
+    alt: 'Logo jalapeño en blanco sobre rojo — si no arde, no impacta',
+  },
+  {
+    src: '/marca-negro.webp',
+    alt: 'Isotipo jalapeño — letra J con estrella cromada sobre negro',
+  },
+]
 
 export function Brand() {
   return (
     <section
       id="marca"
-      className="bg-paper text-ink relative overflow-clip px-6 py-24 sm:px-10 lg:py-36"
+      className="bg-paper text-ink relative z-[2] overflow-clip px-6 py-24 sm:px-10 lg:py-36"
     >
-      {/* fire glow from bottom-right */}
+      {/* crinkled white-plastic texture background */}
       <div
         aria-hidden
-        className="from-amber via-ember/60 pointer-events-none absolute right-[-5%] bottom-[-10%] h-[55vh] w-[40vh] rounded-full bg-gradient-to-t to-transparent opacity-70 blur-[90px]"
+        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/fondo03.webp')" }}
+      />
+      {/* soft white veil: tames plastic highlights so dark type stays crisp */}
+      <div
+        aria-hidden
+        className="bg-paper/35 absolute inset-0 -z-10"
       />
       <span
         aria-hidden
         className="display stroke-text text-ink/15 pointer-events-none absolute top-8 right-4 z-0 text-[26vw] lg:text-[15rem]"
       >
-        03
+        03.
       </span>
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -50,8 +54,8 @@ export function Brand() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display text-[16vw] leading-[0.82] sm:text-8xl lg:text-[9rem]">
-            Jala<span className="text-chili">peño</span>
+          <h2 className="display text-chili text-[16vw] leading-[0.82] sm:text-8xl lg:text-[9rem]">
+            Jalapeño
           </h2>
         </Reveal>
 
@@ -82,13 +86,16 @@ export function Brand() {
           {/* services */}
           <Reveal delay={0.12}>
             <ul className="grid gap-x-6 gap-y-1 sm:grid-cols-2">
-              {SERVICES.map((s, i) => (
+              {SERVICES.map((s) => (
                 <li
                   key={s}
                   className="group border-ink/10 flex items-center gap-3 border-b py-3"
                 >
-                  <span className="display text-chili text-sm tabular-nums">
-                    {String(i + 1).padStart(2, '0')}
+                  <span
+                    aria-hidden
+                    className="text-ink/30 group-hover:text-chili text-lg leading-none font-bold transition-colors"
+                  >
+                    *
                   </span>
                   <span className="text-ink/80 group-hover:text-chili text-sm font-medium transition-colors">
                     {s}
@@ -102,9 +109,35 @@ export function Brand() {
         {/* logo lockups */}
         <Reveal delay={0.1}>
           <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <Lockup tone="paper" />
-            <Lockup tone="chili" />
-            <Lockup tone="ink" />
+            {LOCKUPS.map((l) => (
+              <div
+                key={l.alt}
+                className="ring-ink/10 overflow-hidden rounded-sm ring-1"
+              >
+                {l.video ? (
+                  <video
+                    src={l.video}
+                    poster={l.poster}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    aria-label={l.alt}
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={l.src}
+                    alt={l.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={900}
+                    height={675}
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>
