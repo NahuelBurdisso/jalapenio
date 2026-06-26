@@ -210,8 +210,10 @@ html.lenis body {
   mix-blend-mode: overlay;
 }
 
-/* Focus ring */
-:where(a, button):focus-visible {
+/* Brand focus ring — raised specificity (0,2,0) so it wins over the
+   generic fallback below regardless of source order. */
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--color-ember);
   outline-offset: 3px;
   border-radius: 2px;

@@ -72,7 +72,7 @@ export function Brand() {
                 <span className="bg-ink text-paper rounded-full px-4 py-2 text-xs font-bold tracking-[0.2em] uppercase">
                   si no arde, no impacta
                 </span>
-                <span className="text-ink/50 text-sm">
+                <span className="text-ink/65 text-sm">
                   Encendemos el potencial de tu marca.
                 </span>
               </div>

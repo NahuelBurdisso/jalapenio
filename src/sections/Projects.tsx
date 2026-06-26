@@ -25,7 +25,10 @@ function Card({ p, i }: { p: Project; i: number }) {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="lg:max-w-md">
             <div className="flex items-center gap-4">
-              <span className="display stroke-text text-paper/40 text-5xl">
+              <span
+                aria-hidden="true"
+                className="display stroke-text text-paper/40 text-5xl"
+              >
                 {p.index}
               </span>
               <span
