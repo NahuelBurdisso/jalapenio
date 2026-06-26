@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Astro generated files
+.astro/
+
+# Nested scratch project (not part of this repo)
+/jalapenio/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

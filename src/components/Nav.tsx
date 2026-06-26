@@ -50,7 +50,7 @@ export function Nav() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
-          className="relative flex h-10 w-10 items-center justify-center md:hidden"
+          className="relative flex h-11 w-11 items-center justify-center md:hidden"
         >
           <span
             className={cn(

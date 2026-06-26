@@ -1,6 +1,32 @@
 @import 'tailwindcss';
 
 /* ═══════════════════════════════════════════════════════════════════
+   Self-hosted Google fonts (woff2). No Google Fonts CDN.
+   Public Sans is a variable font — one file covers weights 100–900.
+   ═══════════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/anton-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/public-sans-variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Michroma';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/michroma-400.woff2') format('woff2');
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    JALAPEÑO — design tokens
    ═══════════════════════════════════════════════════════════════════ */
 @theme {
@@ -188,11 +214,19 @@ main section::after {
   background-repeat: repeat;
 }
 
-/* Focus ring */
-:where(a, button):focus-visible {
+/* Brand focus ring — raised specificity (0,2,0) so it wins over the
+   generic fallback below regardless of source order. */
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--color-ember);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/* Global keyboard-focus fallback for any other focusable element */
+:focus-visible {
+  outline: 2px solid var(--color-paper, #f5f0e6);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -207,4 +241,67 @@ main section::after {
   .marquee-content {
     animation: none;
   }
+}
+
+/* Reveal: visible by default (no-JS / crawlers see content).
+   Only when JS is present does content start hidden, then animate in. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Kinetic claim mask-reveal: visible by default; mask + slide only with JS. */
+/* Hero claim mask: above the fold, so it animates in on load via keyframe
+   (no IntersectionObserver — that fails while the lines are translated down).
+   No-JS: without the `.js` class the text just sits visible. */
+.js .claim-line {
+  animation: claim-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes claim-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .claim-line {
+    animation: none;
+    transform: none;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #1e1d1c;
+  color: #f5f0e6;
+  padding: 0.75rem 1rem;
+}
+.skip-link:focus {
+  left: 0;
+}
+.noscript-fallback {
+  padding: 2rem;
+  color: #f5f0e6;
+  background: #1e1d1c;
+  text-align: center;
 }

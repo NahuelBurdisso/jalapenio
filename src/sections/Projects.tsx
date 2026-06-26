@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/Reveal'
 import { Marquee } from '@/components/Marquee'
+import { LazyVideo } from '@/components/LazyVideo'
 import { PROJECTS, type Project } from '@/data/projects'
 import { cn } from '@/lib/cn'
 
@@ -76,13 +77,9 @@ function Card({ p, i }: { p: Project; i: number }) {
                         className="h-full w-full rounded-[5px] object-cover"
                       />
                     ) : (
-                      <video
+                      <LazyVideo
                         src={m.src}
                         poster={m.poster}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
                         aria-label={m.alt}
                         className="h-full w-full rounded-[5px] object-cover"
                       />

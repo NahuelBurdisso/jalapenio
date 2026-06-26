@@ -3,7 +3,7 @@ import Lenis from 'lenis'
 
 /**
  * Mount Lenis smooth-scroll, RAF-driven. Disabled under reduced-motion.
- * Wire into the app root once sections exist (Phase 2).
+ * Mounted once via the SmoothScroll island in src/pages/index.astro.
  */
 export function useLenis() {
   useEffect(() => {

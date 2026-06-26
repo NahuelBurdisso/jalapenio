@@ -1,0 +1,98 @@
+---
+import '@/styles/global.css'
+import { SITE, jsonLd } from '@/lib/seo'
+
+interface Props {
+  title?: string
+  description?: string
+  canonical?: string
+}
+const {
+  title = SITE.title,
+  description = SITE.description,
+  canonical = SITE.url + '/',
+} = Astro.props
+const ogImage = SITE.url + SITE.ogImage
+---
+
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content={SITE.themeColor} />
+    <!-- Mark JS as present so reveal animations can start hidden -->
+    <script is:inline>
+      document.documentElement.classList.add('js')
+    </script>
+
+    <!-- Hero background: preload as high-priority image so it's not an LCP gate -->
+    <link rel="preload" href="/fondo.webp" as="image" />
+    <!-- Self-hosted fonts (preload to avoid FOUT + late LCP repaint on hero) -->
+    <link
+      rel="preload"
+      href="/fonts/anton-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/public-sans-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE.ogImageAlt} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={SITE.locale} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={SITE.ogImageAlt} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Google Search Console verification (paste token before launch) -->
+    <!-- <meta name="google-site-verification" content="REPLACE_ME" /> -->
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+      is:inline
+    />
+  </head>
+  <body>
+    <a href="#inicio" class="skip-link">Saltar al contenido</a>
+    <slot />
+    <noscript>
+      <div class="noscript-fallback">
+        <p>
+          Jalapeño Studio — Marketing Digital por Sofía Herrero. Este sitio usa
+          animaciones que requieren JavaScript, pero podés contactarnos directamente:
+        </p>
+        <p>Email: <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </div>
+    </noscript>
+  </body>
+</html>

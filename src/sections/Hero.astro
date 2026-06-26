@@ -1,0 +1,77 @@
+---
+import { KineticClaim } from '@/components/KineticClaim'
+import { MagneticButton } from '@/components/MagneticButton'
+import { Marquee } from '@/components/Marquee'
+
+// Static Astro shell: the hero copy (incl. the LCP value-prop) is plain SSR
+// HTML so it paints at FCP and is never re-rendered by island hydration.
+// Only the genuinely interactive bits hydrate as small islands.
+---
+
+<section
+  id="inicio"
+  class="bg-char relative flex min-h-[100dvh] flex-col overflow-clip px-6 pt-24 pb-6 sm:px-10"
+>
+  {/* chrome texture background */}
+  <div
+    aria-hidden
+    class="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
+    style="background-image:url('/fondo.webp')"
+  >
+  </div>
+  {/* legibility scrim: darkest on the left where the type sits */}
+  <div
+    aria-hidden
+    class="from-char/95 via-char/75 to-char/30 absolute inset-0 -z-10 bg-gradient-to-r"
+  >
+  </div>
+  {/* bottom scrim: keeps subtext + CTAs readable on mobile (full-width) */}
+  <div
+    aria-hidden
+    class="from-char/85 -z-10 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
+  >
+  </div>
+
+  <div class="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col">
+    {/* founder line — static, above the fold */}
+    <p class="text-paper/55 text-[11px] font-bold tracking-[0.28em] uppercase">
+      Sofía Herrero · Marketing digital
+    </p>
+
+    {/* the claim is the hero — static HTML, reveals via CSS (zero JS) */}
+    <div class="flex flex-1 items-center">
+      <KineticClaim />
+    </div>
+
+    {/* value prop + CTAs */}
+    <div class="grid items-end gap-7 lg:grid-cols-[1fr_auto]">
+      <p class="text-paper/65 max-w-md text-base sm:text-lg">
+        Marketing digital, contenido y ads para marcas con ganas de prender.
+        Estrategia con actitud y resultados que se ven.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <MagneticButton client:visible href="#contacto">Hablemos</MagneticButton>
+        <MagneticButton
+          client:visible
+          href="#proyectos"
+          variant="ghost"
+          className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
+        >
+          Ver proyectos
+        </MagneticButton>
+      </div>
+    </div>
+  </div>
+
+  {/* tape tagline marquee */}
+  <div class="relative mt-7">
+    <div class="border-paper/10 bg-ink/60 -rotate-1 border-y py-3">
+      <Marquee
+        client:visible
+        text="jalapeño · marketing digital · crecimiento de marcas"
+        className="font-display text-paper/90 text-2xl tracking-wide uppercase sm:text-3xl"
+      />
+    </div>
+  </div>
+</section>
