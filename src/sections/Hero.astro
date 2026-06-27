@@ -19,16 +19,17 @@ import { Marquee } from '@/components/Marquee'
     style="background-image:url('/fondo.webp')"
   >
   </div>
-  {/* legibility scrim: darkest on the left where the type sits */}
+  {/* legibility scrim: darkest on the left where the type sits, but lighter
+      overall so the chrome-glass texture stays visible (not muddy) */}
   <div
     aria-hidden
-    class="from-char/95 via-char/75 to-char/30 absolute inset-0 -z-10 bg-gradient-to-r"
+    class="from-char/80 via-char/35 to-transparent absolute inset-0 -z-10 bg-gradient-to-r"
   >
   </div>
   {/* bottom scrim: keeps subtext + CTAs readable on mobile (full-width) */}
   <div
     aria-hidden
-    class="from-char/85 -z-10 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
+    class="from-char/70 -z-10 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
   >
   </div>
 
