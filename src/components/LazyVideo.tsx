@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 /**
  * Autoplay-on-visible video. No `autoplay` attribute (which forces eager
- * download even with preload="none"); instead the poster shows until the
- * element nears the viewport, then we load + play, and pause when offscreen.
- * Keeps heavy video bytes out of the initial page load.
+ * download even with preload="none"); instead nothing loads until the element
+ * nears the viewport, then we attach the poster, load + play, and pause when
+ * offscreen. The `poster` is also withheld until then — a poster attribute is
+ * fetched eagerly by the browser, so binding it upfront would pull ~all the
+ * below-fold poster bytes into the initial load and starve the LCP on mobile.
  */
 export function LazyVideo({
   src,
@@ -20,6 +22,7 @@ export function LazyVideo({
   'aria-hidden'?: boolean
 }) {
   const ref = useRef<HTMLVideoElement>(null)
+  const [activated, setActivated] = useState(false)
   useEffect(() => {
     const v = ref.current
     if (!v) return
@@ -27,6 +30,7 @@ export function LazyVideo({
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
+            setActivated(true)
             v.preload = 'auto'
             void v.play().catch(() => {})
           } else {
@@ -43,7 +47,7 @@ export function LazyVideo({
     <video
       ref={ref}
       src={src}
-      poster={poster}
+      poster={activated ? poster : undefined}
       loop
       muted
       playsInline
