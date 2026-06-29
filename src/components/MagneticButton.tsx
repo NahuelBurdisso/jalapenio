@@ -1,26 +1,21 @@
 import { useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'motion/react'
-import { track } from '@vercel/analytics'
 import { cn } from '@/lib/cn'
 
 /**
  * Magnetic CTA pill with a nested "button-in-button" trailing icon.
  * Cursor pulls the button; icon translates on hover; presses on click.
- * Clicks fire a `cta_click` Vercel Analytics event (label = `event` prop,
- * else the button's text, else the href).
  */
 export function MagneticButton({
   href,
   children,
   variant = 'solid',
   className,
-  event,
 }: {
   href: string
   children: React.ReactNode
   variant?: 'solid' | 'ghost'
   className?: string
-  event?: string
 }) {
   const ref = useRef<HTMLAnchorElement>(null)
   const x = useMotionValue(0)
@@ -38,17 +33,12 @@ export function MagneticButton({
     x.set(0)
     y.set(0)
   }
-  function onClick() {
-    const label = event ?? (typeof children === 'string' ? children : href)
-    track('cta_click', { label, href })
-  }
 
   const solid = variant === 'solid'
   return (
     <motion.a
       ref={ref}
       href={href}
-      onClick={onClick}
       onMouseMove={onMove}
       onMouseLeave={reset}
       style={{ x: sx, y: sy }}

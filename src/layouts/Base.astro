@@ -1,8 +1,6 @@
 ---
 import '@/styles/global.css'
 import { SITE, jsonLd } from '@/lib/seo'
-import Analytics from '@vercel/analytics/astro'
-import SpeedInsights from '@vercel/speed-insights/astro'
 
 interface Props {
   title?: string
@@ -87,6 +85,8 @@ const ogImage = SITE.url + SITE.ogImage
   <body>
     <a href="#inicio" class="skip-link">Saltar al contenido</a>
     <slot />
+    <!-- analytics removed with the Vercel→Hostinger move; add a host-agnostic
+         tool (Plausible / GA4 / Umami) here later if metrics are needed -->
     <noscript>
       <div class="noscript-fallback">
         <p>
@@ -99,7 +99,5 @@ const ogImage = SITE.url + SITE.ogImage
         </p>
       </div>
     </noscript>
-    <Analytics />
-    <SpeedInsights />
   </body>
 </html>

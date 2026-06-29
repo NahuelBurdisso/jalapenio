@@ -1,0 +1,49 @@
+# jalapeno.studio — static Astro site on Hostinger (Apache/LiteSpeed)
+
+RewriteEngine On
+RewriteBase /
+
+# --- Canonical host + HTTPS: force https://www.jalapeno.studio ---
+# apex / any host → www, and http → https, in a single external redirect.
+RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://www.jalapeno.studio%{REQUEST_URI} [L,R=301]
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+        application/javascript application/json image/svg+xml \
+        application/manifest+json
+</IfModule>
+# LiteSpeed (Hostinger) brotli, if available
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain \
+        application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Security headers ---
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --- Caching ---
+<IfModule mod_headers.c>
+    # Hashed build assets (/_astro JS/CSS) + fonts: filename changes on edit,
+    # so they're safe to cache forever.
+    <FilesMatch "\.(js|css|woff2?)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    # Public images/media keep their filename across edits → cache a week, not
+    # forever, so a re-uploaded image (e.g. fondo.webp) refreshes within days.
+    <FilesMatch "\.(png|jpe?g|gif|svg|webp|avif|mp4|ico)$">
+        Header set Cache-Control "public, max-age=604800"
+    </FilesMatch>
+    # HTML / data: always revalidate so deploys show immediately.
+    <FilesMatch "\.(html|xml|json|webmanifest)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>
