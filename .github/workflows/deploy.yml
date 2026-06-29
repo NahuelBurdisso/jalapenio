@@ -1,0 +1,45 @@
+name: Build & publish deploy branch
+
+# Builds the Astro site and publishes the static dist/ to the `deploy` branch.
+# Hostinger's Git integration clones that branch into public_html (it only
+# clones — it does not build), so the deploy branch root must be the built site.
+# Author-agnostic: runs under GITHUB_TOKEN, so any collaborator's push deploys.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-deploy-branch
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish dist/ to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: deploy
+          force_orphan: true
+          enable_jekyll: true # keep .htaccess / dotfiles, no .nojekyll
+          commit_message: "deploy: ${{ github.sha }}"
