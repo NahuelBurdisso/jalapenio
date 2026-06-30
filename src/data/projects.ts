@@ -34,6 +34,10 @@ export const PROJECTS: Project[] = [
         src: '/projects/amnesia-2.webp',
         alt: 'Amnesia — sorteo campera puffer, collage halftone',
       },
+      {
+        src: '/projects/amnesia-7.webp',
+        alt: 'Amnesia — promo 10% acumulable con cualquier promoción',
+      },
     ],
     videos: [
       {
@@ -67,6 +71,14 @@ export const PROJECTS: Project[] = [
       {
         src: '/projects/marea-1.webp',
         alt: 'Marea — desfile Paseo del Jockey, backstage y looks',
+      },
+      {
+        src: '/projects/marea-4.webp',
+        alt: 'Marea — carta de bienvenida a la familia (cliente H2O)',
+      },
+      {
+        src: '/projects/marea-5.webp',
+        alt: 'Marea — carta de agradecimiento al cliente FitnessGroup',
       },
     ],
     videos: [

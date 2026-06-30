@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/Reveal'
 import { LazyVideo } from '@/components/LazyVideo'
+import { cn } from '@/lib/cn'
 import { SERVICES } from '@/data/projects'
 
 // brand-identity lockups (real assets from the brand manual)
@@ -8,6 +9,7 @@ const LOCKUPS: {
   video?: string
   poster?: string
   alt: string
+  contain?: boolean // show the whole asset (no crop) — e.g. tall color palette
 }[] = [
   {
     video: '/marca-video.mp4',
@@ -15,12 +17,12 @@ const LOCKUPS: {
     alt: 'Video del proceso de marca de jalapeño',
   },
   {
-    src: '/marca-rojo.webp',
-    alt: 'Logo jalapeño en blanco sobre rojo — si no arde, no impacta',
+    src: '/colores-jalapeno.webp',
+    alt: 'Paleta de colores de marca jalapeño: negro, blanco, rojo y oliva',
   },
   {
-    src: '/marca-negro.webp',
-    alt: 'Isotipo jalapeño — letra J con estrella cromada sobre negro',
+    src: '/marca-explicacion.webp',
+    alt: 'SOY > JALAPEÑO — agencia de marketing visual y estratégico: si no arde, no impacta',
   },
 ]
 
@@ -113,7 +115,10 @@ export function Brand() {
             {LOCKUPS.map((l) => (
               <div
                 key={l.alt}
-                className="ring-ink/10 overflow-hidden rounded-sm ring-1"
+                className={cn(
+                  'ring-ink/10 overflow-hidden rounded-sm ring-1',
+                  l.contain && 'bg-paper',
+                )}
               >
                 {l.video ? (
                   <LazyVideo
@@ -130,7 +135,10 @@ export function Brand() {
                     decoding="async"
                     width={900}
                     height={675}
-                    className="aspect-[4/3] h-full w-full object-cover"
+                    className={cn(
+                      'aspect-[4/3] h-full w-full',
+                      l.contain ? 'object-contain' : 'object-cover',
+                    )}
                   />
                 )}
               </div>

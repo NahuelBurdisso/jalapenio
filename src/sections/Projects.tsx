@@ -53,14 +53,14 @@ function Card({ p, i }: { p: Project; i: number }) {
           </div>
 
           {media.length > 0 && (
-            <div className="mt-8 flex flex-1 flex-wrap items-center justify-center gap-3 lg:mt-0">
+            <div className="mt-8 flex flex-1 flex-wrap items-center justify-center gap-3 lg:mt-0 lg:max-w-[30rem]">
               {media.map((m) => (
                 <div key={m.src} className="relative h-36 w-36 shrink-0">
                   <figure
                     className={cn(
-                      'ring-paper/15 bg-char absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg p-1 shadow-[0_12px_24px_-10px_rgba(0,0,0,0.7)] ring-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-50 hover:shadow-[0_36px_70px_-18px_rgba(0,0,0,0.85)]',
+                      'group/fig ring-paper/15 bg-char absolute top-1/2 left-1/2 h-36 w-36 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-lg p-1 shadow-[0_12px_24px_-10px_rgba(0,0,0,0.7)] ring-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:z-50 hover:shadow-[0_36px_70px_-18px_rgba(0,0,0,0.85)]',
                       m.kind === 'img'
-                        ? 'hover:h-[12.5rem] hover:w-[22rem]'
+                        ? 'hover:h-[14rem] hover:w-[22rem]'
                         : 'hover:h-[22rem] hover:w-[12.375rem]',
                     )}
                   >
@@ -72,7 +72,7 @@ function Card({ p, i }: { p: Project; i: number }) {
                         decoding="async"
                         width={1600}
                         height={900}
-                        className="h-full w-full rounded-[5px] object-cover"
+                        className="h-full w-full rounded-[5px] object-cover group-hover/fig:object-contain"
                       />
                     ) : (
                       <LazyVideo
