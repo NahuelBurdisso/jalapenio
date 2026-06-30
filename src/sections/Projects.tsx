@@ -6,8 +6,8 @@ import { cn } from '@/lib/cn'
 
 // literal classes so Tailwind's scanner keeps them
 const ACCENT: Record<string, { text: string; chip: string; bar: string }> = {
-  acid: { text: 'text-acid', chip: 'bg-acid text-ink', bar: 'bg-acid' },
-  amber: { text: 'text-amber', chip: 'bg-amber text-ink', bar: 'bg-amber' },
+  acid: { text: 'text-acid', chip: 'bg-acid text-paper', bar: 'bg-acid' },
+  amber: { text: 'text-amber', chip: 'bg-amber text-paper', bar: 'bg-amber' },
   ember: { text: 'text-ember', chip: 'bg-ember text-paper', bar: 'bg-ember' },
 }
 
@@ -41,7 +41,7 @@ function Card({ p, i }: { p: Project; i: number }) {
             <h3 className="font-sans text-paper mt-3 text-4xl font-bold tracking-[0.04em] uppercase sm:text-5xl">
               {p.client}
             </h3>
-            <p className="text-paper/65 mt-5 text-sm leading-relaxed">
+            <p className="text-paper/80 mt-5 text-sm leading-relaxed">
               {p.description}
             </p>
             <p className="mt-4 text-sm">

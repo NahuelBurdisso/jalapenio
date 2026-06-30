@@ -39,7 +39,7 @@ export function About() {
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="text-paper/55 mt-6 max-w-md">
+            <p className="text-paper/80 mt-6 max-w-md">
               Psicóloga de formación,{' '}
               <span className="text-chili font-semibold">
                 estratega por vocación
@@ -84,7 +84,7 @@ export function About() {
                   <span className="display text-paper text-[7cqw] tracking-tight">
                     Jalapeño
                   </span>
-                  <span className="text-paper/45 text-[2.6cqw] font-bold tracking-[0.2em] uppercase">
+                  <span className="text-paper/65 text-[2.6cqw] font-bold tracking-[0.2em] uppercase">
                     Nº 01
                   </span>
                 </div>
@@ -93,11 +93,11 @@ export function About() {
                 <p className="text-chili mt-[6cqw] text-[3.4cqw] font-bold tracking-[0.16em] uppercase">
                   Marketing digital · Branding
                 </p>
-                <p className="text-paper/80 mt-[3.5cqw] text-[4cqw] leading-snug">
+                <p className="text-paper/90 mt-[3.5cqw] text-[4cqw] leading-snug">
                   Psicóloga de formación, estratega por vocación. Identidades,
                   campañas y contenido que conectan y venden.
                 </p>
-                <p className="text-paper/45 mt-[5cqw] text-[3cqw] font-semibold tracking-[0.18em] uppercase">
+                <p className="text-paper/65 mt-[5cqw] text-[3cqw] font-semibold tracking-[0.18em] uppercase">
                   Córdoba, AR
                 </p>
               </div>

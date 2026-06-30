@@ -20,7 +20,7 @@ export function Contact() {
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
         <Reveal delay={0.05}>
-          <p className="text-paper/60 text-[11px] font-bold tracking-[0.3em] uppercase">
+          <p className="text-paper/75 text-[11px] font-bold tracking-[0.3em] uppercase">
             Conclusión y contacto
           </p>
         </Reveal>
@@ -30,7 +30,7 @@ export function Contact() {
           </h2>
         </Reveal>
         <Reveal delay={0.12}>
-          <p className="text-paper/60 mt-6 max-w-xl">
+          <p className="text-paper/75 mt-6 max-w-xl">
             Gracias por explorar mi portfolio. Siempre busco nuevos desafíos y
             marcas con ganas de diferenciarse. Si no arde, no impacta.
           </p>
