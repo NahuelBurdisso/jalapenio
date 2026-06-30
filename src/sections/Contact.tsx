@@ -3,7 +3,7 @@ import { MagneticButton } from '@/components/MagneticButton'
 
 const PHONE = '3541523489'
 const PHONE_PRETTY = '3541-523489'
-const IG = 'herreropipi'
+const IG = 'jalapeno.agencia'
 
 export function Contact() {
   return (

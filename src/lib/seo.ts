@@ -13,8 +13,8 @@ export const SITE = {
   // Real contact channels (the ones shown on the site).
   phone: '+5493541523489',
   whatsapp: 'https://wa.me/5493541523489',
-  instagram: 'https://instagram.com/herreropipi',
-  sameAs: ['https://instagram.com/herreropipi'],
+  instagram: 'https://instagram.com/jalapeno.agencia',
+  sameAs: ['https://instagram.com/jalapeno.agencia'],
 }
 
 export const jsonLd = {
