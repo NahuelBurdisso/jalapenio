@@ -115,7 +115,7 @@ export function Projects() {
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
       >
-        04.
+        03.
       </span>
 
       <div className="relative z-10 mx-auto max-w-7xl">

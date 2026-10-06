@@ -131,7 +131,7 @@ export function Plans() {
         aria-hidden
         className="display stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
       >
-        05.
+        04.
       </span>
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -175,29 +175,6 @@ export function Plans() {
             <PlanCard key={p.id} p={p} i={i} />
           ))}
         </div>
-
-        {/* two accounts: fee vs Meta budget */}
-        <Reveal delay={0.05}>
-          <div className="border-ink/15 mt-14 grid gap-6 border-y py-8 sm:grid-cols-2">
-            <p className="text-ink/75 text-sm leading-relaxed">
-              <span className="text-chili block text-[11px] font-bold tracking-[0.25em] uppercase">
-                A · Mi honorario
-              </span>
-              <strong className="text-ink">Mi trabajo.</strong> Armar las
-              campañas, editar las piezas, mirarlas todas las semanas, ajustar
-              lo que no rinde y explicarte los resultados. Es el precio de cada
-              plan.
-            </p>
-            <p className="text-ink/75 text-sm leading-relaxed">
-              <span className="text-chili block text-[11px] font-bold tracking-[0.25em] uppercase">
-                B · Tu inversión en Meta
-              </span>
-              <strong className="text-ink">La nafta.</strong> Lo que se le paga
-              a Meta para mostrar tus anuncios. Lo pagás directo con tu tarjeta;
-              yo nunca toco esa plata y vos decidís el monto.
-            </p>
-          </div>
-        </Reveal>
 
         {/* setup + extras */}
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">

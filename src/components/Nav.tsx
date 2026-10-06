@@ -4,10 +4,10 @@ import { cn } from '@/lib/cn'
 
 const LINKS = [
   { href: '#inicio', label: 'Inicio' },
-  { href: '#sobre-mi', label: 'Sobre mí' },
-  { href: '#marca', label: 'Marca' },
+  { href: '#como-trabajo', label: 'Cómo trabajo' },
   { href: '#proyectos', label: 'Proyectos' },
   { href: '#planes', label: 'Planes' },
+  { href: '#sobre-mi', label: 'Sobre mí' },
   { href: '#contacto', label: 'Contacto' },
 ]
 
