@@ -7,6 +7,7 @@ const LINKS = [
   { href: '#sobre-mi', label: 'Sobre mí' },
   { href: '#marca', label: 'Marca' },
   { href: '#proyectos', label: 'Proyectos' },
+  { href: '#planes', label: 'Planes' },
   { href: '#contacto', label: 'Contacto' },
 ]
 

@@ -6,6 +6,7 @@ import Hero from '@/sections/Hero.astro'
 import { About } from '@/sections/About'
 import { Brand } from '@/sections/Brand'
 import { Projects } from '@/sections/Projects'
+import { Plans } from '@/sections/Plans'
 import { Contact } from '@/sections/Contact'
 import { SmoothScroll } from '@/components/SmoothScroll'
 import RevealScript from '@/components/RevealScript.astro'
@@ -19,6 +20,7 @@ import RevealScript from '@/components/RevealScript.astro'
     <About client:visible />
     <Brand client:visible />
     <Projects client:visible />
+    <Plans />
     <Contact client:visible />
   </main>
   <SmoothScroll client:idle />
