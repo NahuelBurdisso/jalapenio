@@ -2,6 +2,11 @@
 import { KineticClaim } from '@/components/KineticClaim'
 import { MagneticButton } from '@/components/MagneticButton'
 import { Marquee } from '@/components/Marquee'
+import { SITE } from '@/lib/seo'
+
+const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
+  'Hola Sofía! Quiero pedir la auditoría gratis de mi cuenta.',
+)}`
 
 // Static Astro shell: the hero copy (incl. the LCP value-prop) is plain SSR
 // HTML so it paints at FCP and is never re-rendered by island hydration.
@@ -60,6 +65,14 @@ import { Marquee } from '@/components/Marquee'
           className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
         >
           Ver proyectos
+        </MagneticButton>
+        <MagneticButton
+          client:visible
+          href={AUDIT_HREF}
+          variant="ghost"
+          className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
+        >
+          Pedí tu auditoría gratis
         </MagneticButton>
       </div>
     </div>

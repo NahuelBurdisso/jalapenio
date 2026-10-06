@@ -4,7 +4,7 @@ import { Reflectors } from '@/components/Reflectors'
 import { Nav } from '@/components/Nav'
 import Hero from '@/sections/Hero.astro'
 import { About } from '@/sections/About'
-import { Brand } from '@/sections/Brand'
+import { HowIWork } from '@/sections/HowIWork'
 import { Projects } from '@/sections/Projects'
 import { Plans } from '@/sections/Plans'
 import { Contact } from '@/sections/Contact'
@@ -17,10 +17,10 @@ import RevealScript from '@/components/RevealScript.astro'
   <Nav client:idle />
   <main>
     <Hero />
-    <About client:visible />
-    <Brand client:visible />
+    <HowIWork />
     <Projects client:visible />
     <Plans />
+    <About client:visible />
     <Contact client:visible />
   </main>
   <SmoothScroll client:idle />
