@@ -15,7 +15,7 @@ export function Contact() {
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute -top-2 right-3 z-0 text-[28vw] lg:text-[18rem]"
       >
-        06.
+        05.
       </span>
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
