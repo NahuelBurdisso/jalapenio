@@ -7,7 +7,6 @@ const LINKS = [
   { href: '#como-trabajo', label: 'Cómo trabajo' },
   { href: '#proyectos', label: 'Proyectos' },
   { href: '#planes', label: 'Planes' },
-  { href: '#sobre-mi', label: 'Sobre mí' },
   { href: '#contacto', label: 'Contacto' },
 ]
 

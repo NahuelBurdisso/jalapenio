@@ -3,7 +3,6 @@ import Base from '@/layouts/Base.astro'
 import { Reflectors } from '@/components/Reflectors'
 import { Nav } from '@/components/Nav'
 import Hero from '@/sections/Hero.astro'
-import { About } from '@/sections/About'
 import { HowIWork } from '@/sections/HowIWork'
 import { Projects } from '@/sections/Projects'
 import { Plans } from '@/sections/Plans'
@@ -20,7 +19,6 @@ import RevealScript from '@/components/RevealScript.astro'
     <HowIWork />
     <Projects client:visible />
     <Plans />
-    <About client:visible />
     <Contact client:visible />
   </main>
   <SmoothScroll client:idle />
