@@ -1,14 +1,7 @@
 import { Reveal } from '@/components/Reveal'
 import { cn } from '@/lib/cn'
 import { SITE } from '@/lib/seo'
-import {
-  EXTRAS,
-  FUEGO,
-  PLANS,
-  SETUP,
-  SHOW_PRICES,
-  type Plan,
-} from '@/data/plans'
+import { FUEGO, PLANS, SETUP, SHOW_PRICES, type Plan } from '@/data/plans'
 
 // Static section (no client directive): renders as plain HTML, zero JS.
 // Reveal animations run through the global RevealScript.
@@ -230,8 +223,8 @@ export function Plans() {
           </article>
         </Reveal>
 
-        {/* setup + extras */}
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* setup */}
+        <div className="mt-14">
           <Reveal>
             <div>
               <h3 className="display text-5xl sm:text-6xl">
@@ -268,56 +261,7 @@ export function Plans() {
               </p>
             </div>
           </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="bg-ink text-paper rounded-xl p-7 sm:p-9">
-              <p className="text-paper/75 text-[11px] font-bold tracking-[0.3em] uppercase">
-                Adicionales
-              </p>
-              <ul className="mt-4">
-                {EXTRAS.map((e) => (
-                  <li
-                    key={e.label}
-                    className="border-paper/12 flex items-center justify-between gap-4 border-b py-4 text-sm last:border-b-0"
-                  >
-                    <span className="text-paper/85">{e.label}</span>
-                    {(SHOW_PRICES || e.price === 'Gratis') && (
-                      <strong
-                        className={cn(
-                          'shrink-0 whitespace-nowrap',
-                          e.price === 'Gratis' &&
-                            'text-paper bg-chili rounded-full px-3 py-1 text-[10px] tracking-[0.18em] uppercase',
-                        )}
-                      >
-                        {e.price}
-                      </strong>
-                    )}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={wa(
-                  'Hola Sofía! Quiero pedir la auditoría gratis de mi cuenta.',
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-chili text-paper hover:bg-paper hover:text-ink mt-6 flex min-h-12 items-center justify-center rounded-full px-6 text-xs font-bold tracking-[0.18em] uppercase transition-colors duration-300"
-              >
-                Pedí tu auditoría gratis
-              </a>
-            </div>
-          </Reveal>
         </div>
-
-        <Reveal>
-          <p className="text-ink/65 mt-12 text-center text-xs leading-relaxed">
-            Ningún plan incluye la inversión en Meta · Acuerdo mínimo de 3
-            meses, el tiempo que necesitan los anuncios para aprender y dar
-            resultados reales.
-            {SHOW_PRICES &&
-              ' Precios de lanzamiento en pesos, a septiembre 2026. Cada propuesta se cotiza según tu caso.'}
-          </p>
-        </Reveal>
       </div>
     </section>
   )
