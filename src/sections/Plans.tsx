@@ -223,9 +223,9 @@ export function Plans() {
           </article>
         </Reveal>
 
-        {/* setup */}
-        <div className="mt-14">
-          <Reveal>
+        {/* setup — full width: intro + price left, checklist right */}
+        <Reveal>
+          <div className="border-ink/15 mt-16 grid gap-10 border-t pt-14 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
             <div>
               <h3 className="display text-5xl sm:text-6xl">
                 Configuración <span className="text-chili">inicial</span>
@@ -248,20 +248,26 @@ export function Plans() {
                   </span>
                 </p>
               )}
-              <ul className="mt-6 flex flex-col gap-3 text-sm">
+            </div>
+
+            <div className="bg-ink text-paper rounded-xl p-7 sm:p-9">
+              <p className="text-paper/70 text-[11px] font-bold tracking-[0.3em] uppercase">
+                Qué incluye
+              </p>
+              <ul className="mt-5 flex flex-col gap-4 text-sm">
                 {SETUP.items.map((s) => (
                   <li key={s} className="flex gap-3">
                     <Spark className="text-chili mt-1" />
-                    <span>{s}</span>
+                    <span className="text-paper/90">{s}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-chili mt-5 text-sm font-bold">
+              <p className="border-paper/15 text-paper mt-6 border-t pt-5 text-sm font-bold">
                 Si tu cuenta ya está en orden, no se cobra.
               </p>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
