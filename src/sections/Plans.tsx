@@ -1,7 +1,14 @@
 import { Reveal } from '@/components/Reveal'
 import { cn } from '@/lib/cn'
 import { SITE } from '@/lib/seo'
-import { EXTRAS, PLANS, SETUP, SHOW_PRICES, type Plan } from '@/data/plans'
+import {
+  EXTRAS,
+  FUEGO,
+  PLANS,
+  SETUP,
+  SHOW_PRICES,
+  type Plan,
+} from '@/data/plans'
 
 // Static section (no client directive): renders as plain HTML, zero JS.
 // Reveal animations run through the global RevealScript.
@@ -175,6 +182,53 @@ export function Plans() {
             <PlanCard key={p.id} p={p} i={i} />
           ))}
         </div>
+
+        {/* plan 04 · Fuego — commission-based, full width */}
+        <Reveal delay={0.05}>
+          <article className="bg-ink text-paper ring-chili relative mt-6 grid gap-8 overflow-hidden rounded-xl p-7 ring-2 sm:p-9 lg:grid-cols-[1fr_1.2fr_auto] lg:items-center lg:gap-12">
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="display text-4xl">{FUEGO.index}</span>
+                <span className="bg-chili text-paper rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.18em] uppercase">
+                  A comisión
+                </span>
+              </div>
+              <h3 className="display text-chili mt-4 text-7xl sm:text-8xl">
+                {FUEGO.name}
+              </h3>
+              <p className="text-paper/75 mt-3 text-sm">{FUEGO.tagline}</p>
+              {SHOW_PRICES && (
+                <p className="mt-5 flex flex-wrap items-baseline gap-2">
+                  <span className="display text-5xl">{FUEGO.price}</span>
+                  <span className="text-paper/75 text-sm">/ mes</span>
+                  <span className="display text-chili text-5xl">
+                    {FUEGO.commission}
+                  </span>
+                </p>
+              )}
+            </div>
+
+            <ul className="flex flex-col gap-3 text-sm leading-relaxed">
+              {FUEGO.items.map((it) => (
+                <li key={it.text} className="flex gap-3">
+                  <Spark className="text-chili mt-1" />
+                  <span>
+                    <strong>{it.strong}</strong> {it.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={wa(`Hola Sofía! Me interesa el plan ${FUEGO.name}.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-chili text-paper hover:bg-paper hover:text-ink flex min-h-12 items-center justify-center rounded-full px-8 text-xs font-bold tracking-[0.18em] whitespace-nowrap uppercase transition-colors duration-300"
+            >
+              Quiero el {FUEGO.name}
+            </a>
+          </article>
+        </Reveal>
 
         {/* setup + extras */}
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">

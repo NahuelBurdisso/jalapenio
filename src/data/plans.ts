@@ -91,6 +91,27 @@ export const PLANS: Plan[] = [
   },
 ]
 
+// Plan a comisión: fijo mensual + porcentaje de las ventas que traen los anuncios.
+export const FUEGO = {
+  index: '04',
+  name: 'Fuego',
+  tagline: 'Un fijo mensual más un porcentaje de las ventas.',
+  price: '$100.000',
+  commission: '+ 10%',
+  items: [
+    { strong: 'Solo tiendas online.', text: 'Todo lo del plan Arde.' },
+    {
+      strong: 'El 10% es solo de ventas',
+      text: 'que traen mis anuncios.',
+    },
+    {
+      strong: 'Si vendés más, gano más.',
+      text: 'Si vendés menos, pagás menos.',
+    },
+    { strong: 'Inversión en Meta', text: 'desde $600.000/mes.' },
+  ],
+}
+
 export const SETUP = {
   price: '$60.000',
   oldPrice: '$120.000',
