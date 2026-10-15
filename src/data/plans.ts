@@ -122,9 +122,3 @@ export const SETUP = {
     'Catálogo de productos, si tenés tienda online.',
   ],
 }
-
-export const EXTRAS = [
-  { label: 'Reel extra editado (con tu material)', price: 'desde $25.000' },
-  { label: 'Placa o pieza extra para anuncios', price: 'desde $12.000' },
-  { label: 'Auditoría de tu cuenta', price: 'Gratis' },
-]
