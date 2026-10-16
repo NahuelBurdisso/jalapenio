@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { Star } from '@/components/Star'
 import { Marquee } from '@/components/Marquee'
 import { LazyVideo } from '@/components/LazyVideo'
 import { PROJECTS, type Project } from '@/data/projects'
@@ -113,8 +114,9 @@ export function Projects() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display text-paper text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
+          <h2 className="display text-paper relative w-fit text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
             Proyectos
+            <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
           </h2>
         </Reveal>
 

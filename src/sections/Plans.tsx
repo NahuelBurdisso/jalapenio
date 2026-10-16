@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { Star } from '@/components/Star'
 import { cn } from '@/lib/cn'
 import { SITE } from '@/lib/seo'
 import { FUEGO, PLANS, SETUP, SHOW_PRICES, type Plan } from '@/data/plans'
@@ -141,8 +142,9 @@ export function Plans() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display text-ink text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
+          <h2 className="display text-ink relative w-fit text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
             Elegí el <span className="text-chili">picor</span>
+            <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
           </h2>
         </Reveal>
 

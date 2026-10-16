@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { Star } from '@/components/Star'
 import { SITE } from '@/lib/seo'
 import { SHOW_PRICES } from '@/data/plans'
 import { EXTRAS, RULES } from '@/data/extras'
@@ -30,8 +31,9 @@ export function Extras() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display mt-3 text-[10.8vw] leading-none sm:text-6xl lg:text-7xl">
+          <h2 className="display relative mt-3 w-fit text-[10.8vw] leading-none sm:text-6xl lg:text-7xl">
             Extras
+            <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
           </h2>
         </Reveal>
 
@@ -77,7 +79,8 @@ export function Extras() {
         </Reveal>
 
         {/* rules */}
-        <div className="border-paper/25 mt-20 grid gap-10 border-t pt-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="bg-ink relative mt-24 grid gap-10 rounded-[20px] px-6 pt-14 pb-10 sm:px-12 sm:pt-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Star className="-top-10 -left-5 w-20 -rotate-12 sm:-top-12 sm:-left-8 sm:w-28" />
           <div>
             <Reveal>
               <p className="text-paper/75 text-[11px] font-bold tracking-[0.3em] uppercase">

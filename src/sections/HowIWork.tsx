@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { Star } from '@/components/Star'
 
 // Static section (no client directive): plain HTML, zero JS.
 
@@ -42,9 +43,10 @@ export function HowIWork() {
               </p>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display text-ink mt-3 text-[9vw] leading-[0.88] sm:text-6xl lg:text-[4.5rem]">
+              <h2 className="display text-ink relative mt-3 w-fit text-[9vw] leading-[0.88] sm:text-6xl lg:text-[4.5rem]">
                 Primero, los que{' '}
                 <span className="text-chili">ya te conocen.</span>
+                <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
               </h2>
             </Reveal>
             <Reveal delay={0.08}>
