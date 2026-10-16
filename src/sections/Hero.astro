@@ -47,23 +47,35 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
 
     {/* CTAs only — the cover carries no copy */}
     <div class="flex justify-center">
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <MagneticButton client:visible href="#contacto">Hablemos</MagneticButton>
+      {/* phones: three compact pills in one row; desktop: full buttons */}
+      <div class="grid w-full max-w-md grid-cols-3 gap-1.5 sm:flex sm:w-auto sm:max-w-none sm:flex-wrap sm:items-center sm:justify-center sm:gap-3">
+        <MagneticButton
+          client:visible
+          href="#contacto"
+          className="min-h-[40px] w-full justify-center gap-0 px-2 py-2 text-[10.5px] tracking-normal whitespace-nowrap sm:w-auto sm:gap-3 sm:px-6 sm:py-3 sm:text-sm sm:tracking-wide"
+          iconClassName="hidden sm:flex"
+        >
+          Hablemos
+        </MagneticButton>
         <MagneticButton
           client:visible
           href="#proyectos"
           variant="ghost"
-          className="text-ink ring-ink/30 hover:bg-ink hover:text-paper"
+          className="text-ink ring-ink/30 hover:bg-ink hover:text-paper min-h-[40px] w-full justify-center gap-0 px-2 py-2 text-[10.5px] tracking-normal whitespace-nowrap sm:w-auto sm:gap-3 sm:px-6 sm:py-3 sm:text-sm sm:tracking-wide"
+          iconClassName="hidden sm:flex"
         >
-          Ver proyectos
+          <span class="sm:hidden">Proyectos</span>
+          <span class="hidden sm:inline">Ver proyectos</span>
         </MagneticButton>
         <MagneticButton
           client:visible
           href={AUDIT_HREF}
           variant="ghost"
-          className="text-ink ring-ink/30 hover:bg-ink hover:text-paper"
+          className="text-ink ring-ink/30 hover:bg-ink hover:text-paper min-h-[40px] w-full justify-center gap-0 px-2 py-2 text-[10.5px] tracking-normal whitespace-nowrap sm:w-auto sm:gap-3 sm:px-6 sm:py-3 sm:text-sm sm:tracking-wide"
+          iconClassName="hidden sm:flex"
         >
-          Pedí tu auditoría gratis
+          <span class="sm:hidden">Auditoría gratis</span>
+          <span class="hidden sm:inline">Pedí tu auditoría gratis</span>
         </MagneticButton>
       </div>
     </div>
