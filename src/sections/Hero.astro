@@ -1,5 +1,4 @@
 ---
-import { KineticClaim } from '@/components/KineticClaim'
 import { MagneticButton } from '@/components/MagneticButton'
 import { Marquee } from '@/components/Marquee'
 import { SITE } from '@/lib/seo'
@@ -23,20 +22,25 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
       Sofía Herrero · Marketing digital
     </p>
 
-    {/* the claim is the hero — static HTML, reveals via CSS (zero JS) */}
-    <div class="flex flex-1 flex-col justify-center gap-6 py-8 sm:gap-8">
-      <h1 class="m-0">
-        <img
-          src="/logo-jalapeno-claro.webp"
-          alt="Jalapeño — tu marca, pero picante."
-          width="1046"
-          height="613"
-          fetchpriority="high"
-          decoding="async"
-          class="h-auto w-[min(88vw,40rem)] mix-blend-multiply lg:w-[46rem]"
-        />
-      </h1>
-      <KineticClaim />
+    {/* logo lockup is the hero: the brand line sits under the wordmark,
+        where the logo's own tagline goes, so it reads as part of the logo */}
+    <div class="flex flex-1 flex-col justify-center py-8">
+      <div class="relative w-[min(88vw,40rem)] [container-type:inline-size] lg:w-[46rem]">
+        <h1 class="m-0">
+          <img
+            src="/logo-jalapeno-v2.webp"
+            alt="Jalapeño"
+            width="1046"
+            height="613"
+            fetchpriority="high"
+            decoding="async"
+            class="block h-auto w-full mix-blend-multiply"
+          />
+        </h1>
+        <p class="text-ink absolute top-[59.5%] left-[57%] m-0 text-[max(12px,3cqw)] leading-none font-medium whitespace-nowrap">
+          si no <span class="text-chili">arde</span>, no impacta.
+        </p>
+      </div>
     </div>
 
     {/* value prop + CTAs */}
