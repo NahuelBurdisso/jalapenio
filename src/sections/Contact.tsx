@@ -13,7 +13,7 @@ export function Contact() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-paper/15 pointer-events-none absolute -top-2 right-3 z-0 text-[16.8vw] lg:text-[10.8rem]"
+        className="section-num stroke-text text-paper/15 pointer-events-none absolute -top-2 right-3 z-0 text-[28vw] lg:text-[18rem]"
       >
         06.
       </span>

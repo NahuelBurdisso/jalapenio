@@ -5,6 +5,13 @@
    Public Sans is a variable font — one file covers weights 100–900.
    ═══════════════════════════════════════════════════════════════════ */
 @font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/anton-400.woff2') format('woff2');
+}
+@font-face {
   font-family: 'Unbounded';
   font-style: normal;
   font-weight: 700;
@@ -98,6 +105,14 @@ html.lenis body {
   line-height: 0.95;
   letter-spacing: -0.02em;
   font-weight: 700;
+}
+
+/* Big outlined section numbers (02., 03.…) — tall condensed Anton */
+@utility section-num {
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  font-weight: 400;
 }
 
 /* Outlined text (hollow letters) — section numbers, kinetic accents */
