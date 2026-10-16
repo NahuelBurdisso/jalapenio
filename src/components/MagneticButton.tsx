@@ -11,11 +11,14 @@ export function MagneticButton({
   children,
   variant = 'solid',
   className,
+  iconClassName,
 }: {
   href: string
   children: React.ReactNode
   variant?: 'solid' | 'ghost'
   className?: string
+  /** extra classes for the ↗ circle (e.g. hide it on mobile) */
+  iconClassName?: string
 }) {
   const ref = useRef<HTMLAnchorElement>(null)
   const x = useMotionValue(0)
@@ -56,6 +59,7 @@ export function MagneticButton({
         className={cn(
           'flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:-translate-y-[2px]',
           solid ? 'bg-paper/15' : 'bg-ink/10 group-hover:bg-paper/15',
+          iconClassName,
         )}
       >
         ↗
