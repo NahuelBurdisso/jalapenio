@@ -127,12 +127,15 @@ export function Projects() {
         </div>
       </div>
 
-      <div className="border-paper/10 relative z-10 mt-16 -rotate-1 border-y py-3">
-        <Marquee
-          reverse
-          text="branding · contenido · meta ads · campañas"
-          className="font-display text-paper/70 text-xl tracking-wide uppercase"
-        />
+      {/* full-bleed tape, same treatment as the hero one */}
+      <div className="relative z-10 -mx-10 mt-16 sm:-mx-16">
+        <div className="bg-ink/55 -rotate-1 py-2.5 backdrop-blur-sm">
+          <Marquee
+            reverse
+            text="branding · contenido · meta ads · campañas"
+            className="font-display text-paper text-sm tracking-wide uppercase sm:text-base"
+          />
+        </div>
       </div>
     </section>
   )
