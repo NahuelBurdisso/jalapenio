@@ -18,7 +18,7 @@ export function Extras() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[15.6vw] lg:text-[9rem]"
+        className="section-num stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
       >
         05.
       </span>
@@ -33,7 +33,7 @@ export function Extras() {
         <Reveal delay={0.05}>
           <h2 className="display relative mt-3 w-fit text-[10.8vw] leading-none sm:text-6xl lg:text-7xl">
             Extras
-            <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
+            <Star className="-top-5 -right-14 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
           </h2>
         </Reveal>
 

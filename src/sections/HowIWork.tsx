@@ -29,7 +29,7 @@ export function HowIWork() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[15.6vw] lg:text-[9rem]"
+        className="section-num stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
       >
         02.
       </span>
