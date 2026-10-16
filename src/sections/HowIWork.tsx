@@ -6,18 +6,23 @@ import { Star } from '@/components/Star'
 const POINTS = [
   {
     n: '01',
-    title: 'Una sola persona',
-    text: 'Soy Sofía. La que te responde es la misma que arma y mira tus campañas. Sin intermediarios.',
+    title: 'Primero, los que ya te conocen',
+    text: 'Antes de salir a buscar gente nueva, vuelvo a buscar a quienes ya te compraron, te escribieron o te siguen y no se decidieron. Están tibios: ya saben quién sos, y traerlos de vuelta cuesta menos.',
   },
   {
     n: '02',
     title: 'Entiendo por qué se compra',
-    text: 'Vengo de la psicología. La mitad del trabajo es escuchar bien a tu cliente y hablarle como corresponde.',
+    text: 'Vengo de la psicología. Entender qué le pasa a tu cliente antes de comprar es lo que hace que un anuncio le hable como corresponde.',
   },
   {
     n: '03',
-    title: 'Te lo explico en criollo',
-    text: 'Informes cortos y claros. Sabés qué se hizo, qué funcionó y qué cambiamos.',
+    title: 'Un objetivo claro por campaña',
+    text: 'Cada campaña apunta a algo concreto: ventas, mensajes o visitas a tu tienda. Y se mide contra eso, no contra los likes.',
+  },
+  {
+    n: '04',
+    title: 'Resultados explicados en simple',
+    text: 'Informes cortos y claros: qué se hizo, qué funcionó y qué vamos a cambiar.',
   },
 ]
 
@@ -44,17 +49,17 @@ export function HowIWork() {
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display text-ink relative mt-3 w-fit text-[9vw] leading-[0.88] sm:text-6xl lg:text-[4.5rem]">
-                Primero, los que{' '}
-                <span className="text-chili">ya te conocen.</span>
+                Estrategia antes que{' '}
+                <span className="text-chili">anuncios.</span>
                 <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
               </h2>
             </Reveal>
             <Reveal delay={0.08}>
               <p className="text-ink/75 mt-8 max-w-lg text-lg">
-                Antes de gastar en gente nueva, vuelvo a buscar a quienes ya te
-                compraron, te preguntaron o te siguen y no se decidieron. Están
-                tibios: ya saben quién sos. Traerlos de vuelta cuesta menos que
-                convencer a un desconocido.
+                Cada campaña arranca entendiendo tu negocio y a tu cliente.
+                Recién después armo los anuncios, los reviso todas las semanas y
+                ajusto lo que no rinde, para que tu inversión en Meta se
+                convierta en ventas.
               </p>
             </Reveal>
           </div>

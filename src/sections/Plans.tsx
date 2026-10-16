@@ -143,7 +143,7 @@ export function Plans() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="display text-ink relative w-fit text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
-            Elegí el <span className="text-chili">picor</span>
+            Elegí tu <span className="text-chili">plan</span>
             <Star className="-top-11 right-0 w-11 rotate-12 sm:-top-9 sm:-right-16 sm:w-16" />
           </h2>
         </Reveal>
@@ -151,12 +151,10 @@ export function Plans() {
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <Reveal delay={0.08}>
             <p className="text-ink/75 max-w-xl text-lg">
-              Meta Ads para negocios que quieren vender, explicado sin vueltas.{' '}
-              <strong className="text-ink">
-                Primero, los que ya te conocen:
-              </strong>{' '}
-              antes de gastar en gente nueva, vuelvo a buscar a quienes ya te
-              compraron, te preguntaron o te siguen.
+              Todos los planes incluyen estrategia, anuncios y seguimiento.{' '}
+              <strong className="text-ink">Lo que cambia es el alcance:</strong>{' '}
+              cuántas campañas, cuántas piezas por mes y cada cuánto te paso los
+              resultados.
             </p>
           </Reveal>
           {SHOW_PRICES && (
