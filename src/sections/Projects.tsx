@@ -28,7 +28,7 @@ function Card({ p, i }: { p: Project; i: number }) {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="lg:max-w-md">
             <div className="flex items-center gap-4">
-              <span className="display text-paper text-5xl">{p.index}</span>
+              <span className="display text-paper text-3xl">{p.index}</span>
               <span
                 className={cn(
                   'rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.18em] uppercase',
@@ -101,7 +101,7 @@ export function Projects() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
+        className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[15.6vw] lg:text-[9rem]"
       >
         03.
       </span>
@@ -113,7 +113,7 @@ export function Projects() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display text-paper text-[18vw] leading-none sm:text-9xl lg:text-[11rem]">
+          <h2 className="display text-paper text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
             Proyectos
           </h2>
         </Reveal>

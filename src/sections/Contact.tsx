@@ -13,7 +13,7 @@ export function Contact() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-paper/15 pointer-events-none absolute -top-2 right-3 z-0 text-[28vw] lg:text-[18rem]"
+        className="display stroke-text text-paper/15 pointer-events-none absolute -top-2 right-3 z-0 text-[16.8vw] lg:text-[10.8rem]"
       >
         06.
       </span>
@@ -25,7 +25,7 @@ export function Contact() {
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="display mt-3 text-[18vw] leading-[0.85] sm:text-8xl lg:text-[10rem]">
+          <h2 className="display mt-3 text-[10.8vw] leading-[0.85] sm:text-6xl lg:text-[6rem]">
             Hagamos que <span className="text-chili">arda</span>
           </h2>
         </Reveal>

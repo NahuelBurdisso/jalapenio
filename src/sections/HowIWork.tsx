@@ -28,7 +28,7 @@ export function HowIWork() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
+        className="display stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[15.6vw] lg:text-[9rem]"
       >
         02.
       </span>
@@ -42,7 +42,7 @@ export function HowIWork() {
               </p>
             </Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display text-ink mt-3 text-[15vw] leading-[0.88] sm:text-8xl lg:text-[7.5rem]">
+              <h2 className="display text-ink mt-3 text-[9vw] leading-[0.88] sm:text-6xl lg:text-[4.5rem]">
                 Primero, los que{' '}
                 <span className="text-chili">ya te conocen.</span>
               </h2>
@@ -65,7 +65,7 @@ export function HowIWork() {
                 delay={0.06 * i}
                 className="border-ink/15 flex gap-6 border-t py-7 last:border-b"
               >
-                <span className="display text-chili w-12 shrink-0 text-4xl">
+                <span className="display text-chili w-12 shrink-0 text-3xl">
                   {p.n}
                 </span>
                 <div>

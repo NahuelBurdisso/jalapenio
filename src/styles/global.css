@@ -5,11 +5,18 @@
    Public Sans is a variable font — one file covers weights 100–900.
    ═══════════════════════════════════════════════════════════════════ */
 @font-face {
-  font-family: 'Anton';
+  font-family: 'Unbounded';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-display: swap;
-  src: url('/fonts/anton-400.woff2') format('woff2');
+  src: url('/fonts/unbounded-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/unbounded-600.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Public Sans';
@@ -18,19 +25,12 @@
   font-display: swap;
   src: url('/fonts/public-sans-variable.woff2') format('woff2');
 }
-@font-face {
-  font-family: 'Michroma';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/michroma-400.woff2') format('woff2');
-}
 
 /* ═══════════════════════════════════════════════════════════════════
    JALAPEÑO — design tokens
    ═══════════════════════════════════════════════════════════════════ */
 @theme {
-  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  --font-display: 'Unbounded', 'Arial Black', sans-serif;
   --font-sans: 'Public Sans', system-ui, sans-serif;
 
   /* Brand palette — only 3 colors. The extra tokens below are aliases
@@ -95,9 +95,9 @@ html.lenis body {
 @utility display {
   font-family: var(--font-display);
   text-transform: uppercase;
-  line-height: 0.86;
-  letter-spacing: -0.01em;
-  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 /* Outlined text (hollow letters) — section numbers, kinetic accents */

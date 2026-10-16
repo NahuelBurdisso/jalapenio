@@ -1,4 +1,11 @@
-import { Component, lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
+import {
+  Component,
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+  type ReactNode,
+} from 'react'
 import { ChromeStar } from '@/components/ChromeStar'
 
 const StarScene = lazy(() => import('@/scenes/StarScene'))
