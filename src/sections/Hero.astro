@@ -22,10 +22,10 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
       Sofía Herrero · Marketing digital
     </p>
 
-    {/* logo lockup is the hero: the brand line sits under the wordmark,
-        where the logo's own tagline goes, so it reads as part of the logo */}
-    <div class="flex flex-1 flex-col justify-center py-8">
-      <div class="relative w-[min(88vw,40rem)] [container-type:inline-size] lg:w-[46rem]">
+    {/* poster cover: the logo lockup fills (almost) the whole width; the
+        brand line sits under the wordmark, where the logo's tagline goes */}
+    <div class="flex flex-1 flex-col items-center justify-center py-8">
+      <div class="relative -mx-4 w-[calc(100%+2rem)] max-w-[84rem] [container-type:inline-size] sm:mx-0 sm:w-[min(96vw,84rem)]">
         <h1 class="m-0">
           <img
             src="/logo-jalapeno-v2.webp"
@@ -43,15 +43,9 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
       </div>
     </div>
 
-    {/* value prop + CTAs */}
-    <div class="grid items-end gap-7 lg:grid-cols-[1fr_auto]">
-      <p class="text-ink/75 max-w-md text-base sm:text-lg">
-        Estrategia y gestión de campañas en Meta Ads para negocios y tiendas
-        online. Remarketing, anuncios e informes claros de resultados:
-        publicidad que arde.
-      </p>
-
-      <div class="flex flex-wrap items-center gap-3">
+    {/* CTAs only — the cover carries no copy */}
+    <div class="flex justify-center">
+      <div class="flex flex-wrap items-center justify-center gap-3">
         <MagneticButton client:visible href="#contacto">Hablemos</MagneticButton>
         <MagneticButton
           client:visible
