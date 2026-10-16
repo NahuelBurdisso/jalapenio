@@ -195,23 +195,11 @@ html.lenis body {
   }
 }
 
-/* Film-grain texture — painted on each section's BACKGROUND only.
-   z-index:-1 keeps it above the section's bg color but below all content,
-   so text (incl. red letters) stays crisp and grain-free. */
+/* Sections are flat brand colors (no grain overlay) so whites, blacks and
+   reds render exactly #f7f7f7 / #1e1d1c / #9e1111. */
 main section {
   position: relative;
   isolation: isolate;
-}
-main section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.18;
-  mix-blend-mode: soft-light;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
 }
 
 /* Brand focus ring — raised specificity (0,2,0) so it wins over the
@@ -225,7 +213,7 @@ button:focus-visible {
 
 /* Global keyboard-focus fallback for any other focusable element */
 :focus-visible {
-  outline: 2px solid var(--color-paper, #f5f0e6);
+  outline: 2px solid var(--color-paper, #f7f7f7);
   outline-offset: 2px;
 }
 
@@ -293,7 +281,7 @@ button:focus-visible {
   top: 0;
   z-index: 100;
   background: #1e1d1c;
-  color: #f5f0e6;
+  color: #f7f7f7;
   padding: 0.75rem 1rem;
 }
 .skip-link:focus {
@@ -301,7 +289,7 @@ button:focus-visible {
 }
 .noscript-fallback {
   padding: 2rem;
-  color: #f5f0e6;
+  color: #f7f7f7;
   background: #1e1d1c;
   text-align: center;
 }

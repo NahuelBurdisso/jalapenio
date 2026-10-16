@@ -23,7 +23,7 @@ function Card({ p, i }: { p: Project; i: number }) {
   ]
   return (
     <Reveal delay={0.05 * i}>
-      <article className="group border-paper/10 bg-ink/70 relative z-0 rounded-xl border p-7 backdrop-blur-sm hover:z-30 sm:p-10">
+      <article className="group border-paper/10 bg-ink relative z-0 rounded-xl border p-7 hover:z-30 sm:p-10">
         <div className={cn('absolute inset-x-0 top-0 h-1', a.bar)} />
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="lg:max-w-md">
@@ -38,7 +38,7 @@ function Card({ p, i }: { p: Project; i: number }) {
                 {p.kind}
               </span>
             </div>
-            <h3 className="font-sans text-paper mt-3 text-4xl font-bold tracking-[0.04em] uppercase sm:text-5xl">
+            <h3 className="text-paper mt-3 font-sans text-4xl font-bold tracking-[0.04em] uppercase sm:text-5xl">
               {p.client}
             </h3>
             <p className="text-paper/80 mt-5 text-sm leading-relaxed">
@@ -97,20 +97,8 @@ export function Projects() {
   return (
     <section
       id="proyectos"
-      className="bg-char relative z-[2] overflow-clip px-6 pt-24 pb-6 sm:px-10 lg:pt-36 lg:pb-8"
+      className="bg-chili relative z-[2] overflow-clip px-6 pt-24 pb-6 sm:px-10 lg:pt-36 lg:pb-8"
     >
-      {/* red lacquer-box background — stretched so the box depth stays
-          symmetric (ceiling at top, floor at bottom) like the original photo */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-20 bg-[length:100%_100%] bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/fondo4.webp')" }}
-      />
-      {/* soft scrim: deepens top/bottom so the heading + cards read on the red */}
-      <div
-        aria-hidden
-        className="from-char/35 via-char/5 to-char/35 absolute inset-0 -z-10 bg-gradient-to-b"
-      />
       <span
         aria-hidden
         className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"

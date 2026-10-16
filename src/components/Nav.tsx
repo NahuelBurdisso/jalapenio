@@ -15,7 +15,7 @@ export function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center">
-      <nav className="border-paper/12 bg-ink/55 mx-auto mt-5 flex w-[min(92%,64rem)] items-center justify-between rounded-full border px-3 py-2 backdrop-blur-xl">
+      <nav className="border-paper/12 bg-ink mx-auto mt-5 flex w-[min(92%,64rem)] items-center justify-between rounded-full border px-3 py-2 backdrop-blur-xl">
         <a
           href="#inicio"
           className="font-display text-paper flex items-center gap-2 pl-2 text-lg tracking-tight uppercase"

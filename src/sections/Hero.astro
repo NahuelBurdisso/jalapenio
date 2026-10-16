@@ -15,32 +15,11 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
 
 <section
   id="inicio"
-  class="bg-char relative flex min-h-[100dvh] flex-col overflow-clip px-6 pt-24 pb-6 sm:px-10"
+  class="bg-paper text-ink relative z-[2] flex min-h-[100dvh] flex-col overflow-clip px-6 pt-24 pb-6 sm:px-10"
 >
-  {/* chrome texture background */}
-  <div
-    aria-hidden
-    class="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-    style="background-image:url('/fondo-v2.webp')"
-  >
-  </div>
-  {/* legibility scrim: darkest on the left where the type sits, but lighter
-      overall so the chrome-glass texture stays visible (not muddy) */}
-  <div
-    aria-hidden
-    class="from-char/80 via-char/35 to-transparent absolute inset-0 -z-10 bg-gradient-to-r"
-  >
-  </div>
-  {/* bottom scrim: keeps subtext + CTAs readable on mobile (full-width) */}
-  <div
-    aria-hidden
-    class="from-char/70 -z-10 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
-  >
-  </div>
-
   <div class="relative z-10 mx-auto flex w-full max-w-[1400px] flex-1 flex-col">
     {/* founder line — static, above the fold */}
-    <p class="text-paper/75 text-[11px] font-bold tracking-[0.28em] uppercase">
+    <p class="text-ink/70 text-[11px] font-bold tracking-[0.28em] uppercase">
       Sofía Herrero · Marketing digital
     </p>
 
@@ -48,13 +27,13 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
     <div class="flex flex-1 flex-col justify-center gap-6 py-8 sm:gap-8">
       <h1 class="m-0">
         <img
-          src="/logo-jalapeno.webp"
-          alt="Jalapeño"
-          width="1400"
-          height="753"
+          src="/logo-jalapeno-claro.webp"
+          alt="Jalapeño — tu marca, pero picante."
+          width="1046"
+          height="613"
           fetchpriority="high"
           decoding="async"
-          class="h-auto w-[min(88vw,40rem)] drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)] lg:w-[46rem]"
+          class="h-auto w-[min(88vw,40rem)] mix-blend-multiply lg:w-[46rem]"
         />
       </h1>
       <KineticClaim />
@@ -62,7 +41,7 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
 
     {/* value prop + CTAs */}
     <div class="grid items-end gap-7 lg:grid-cols-[1fr_auto]">
-      <p class="text-paper/80 max-w-md text-base sm:text-lg">
+      <p class="text-ink/75 max-w-md text-base sm:text-lg">
         Estrategia y gestión de campañas en Meta Ads para negocios y tiendas
         online. Remarketing, anuncios e informes claros de resultados:
         publicidad que arde.
@@ -74,7 +53,7 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
           client:visible
           href="#proyectos"
           variant="ghost"
-          className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
+          className="text-ink ring-ink/30 hover:bg-ink hover:text-paper"
         >
           Ver proyectos
         </MagneticButton>
@@ -82,7 +61,7 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
           client:visible
           href={AUDIT_HREF}
           variant="ghost"
-          className="text-paper ring-paper/30 hover:bg-paper hover:text-ink"
+          className="text-ink ring-ink/30 hover:bg-ink hover:text-paper"
         >
           Pedí tu auditoría gratis
         </MagneticButton>
@@ -92,7 +71,7 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
 
   {/* tape tagline marquee */}
   <div class="relative mt-7">
-    <div class="border-paper/10 bg-ink/60 -rotate-1 border-y py-3">
+    <div class="bg-ink -rotate-1 py-3">
       <Marquee
         client:visible
         text="jalapeño · marketing digital · crecimiento de marcas"
