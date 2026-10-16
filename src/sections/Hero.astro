@@ -74,12 +74,14 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
   </div>
 
   {/* tape tagline marquee */}
-  <div class="relative mt-7">
-    <div class="bg-ink -rotate-1 py-3">
+  {/* full-bleed: negative margins cancel the section padding (and a bit
+      more so the tilted strip still reaches both edges) */}
+  <div class="relative -mx-10 mt-7 sm:-mx-16">
+    <div class="bg-ink/55 -rotate-1 py-2.5 backdrop-blur-sm">
       <Marquee
         client:visible
         text="jalapeño · marketing digital · crecimiento de marcas"
-        className="font-display text-paper/90 text-xl tracking-wide uppercase sm:text-2xl"
+        className="font-display text-paper text-sm tracking-wide uppercase sm:text-base"
       />
     </div>
   </div>
