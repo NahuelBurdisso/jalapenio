@@ -20,6 +20,13 @@ export function Nav() {
           href="#inicio"
           className="font-display text-paper flex items-center gap-2 pl-2 text-lg tracking-tight uppercase"
         >
+          <img
+            src="/logo-j.webp"
+            alt=""
+            width="178"
+            height="160"
+            className="h-8 w-auto"
+          />
           <span style={{ fontFamily: 'Michroma, sans-serif', fontWeight: 600 }}>
             Jalapeño
           </span>

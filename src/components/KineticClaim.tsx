@@ -15,7 +15,7 @@ export function KineticClaim() {
   ]
 
   return (
-    <h1 className="display text-paper text-[clamp(3.25rem,13vw,11rem)] leading-[0.82]">
+    <p className="display text-paper text-[clamp(2.25rem,7vw,5rem)] leading-[0.86]">
       {lines.map((line, i) => (
         <span key={i} className="block overflow-clip pb-[0.06em]">
           <span
@@ -26,6 +26,6 @@ export function KineticClaim() {
           </span>
         </span>
       ))}
-    </h1>
+    </p>
   )
 }

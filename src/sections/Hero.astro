@@ -45,7 +45,18 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
     </p>
 
     {/* the claim is the hero — static HTML, reveals via CSS (zero JS) */}
-    <div class="flex flex-1 items-center">
+    <div class="flex flex-1 flex-col justify-center gap-6 py-8 sm:gap-8">
+      <h1 class="m-0">
+        <img
+          src="/logo-jalapeno.webp"
+          alt="Jalapeño"
+          width="1400"
+          height="753"
+          fetchpriority="high"
+          decoding="async"
+          class="h-auto w-[min(88vw,40rem)] drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)] lg:w-[46rem]"
+        />
+      </h1>
       <KineticClaim />
     </div>
 
@@ -54,7 +65,7 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
       <p class="text-paper/80 max-w-md text-base sm:text-lg">
         Estrategia y gestión de campañas en Meta Ads para negocios y tiendas
         online. Remarketing, anuncios e informes claros de resultados:
-        publicidad que no es tibia.
+        publicidad que arde.
       </p>
 
       <div class="flex flex-wrap items-center gap-3">
