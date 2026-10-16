@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { cn } from '@/lib/cn'
 
@@ -12,10 +12,24 @@ const LINKS = [
 
 export function Nav() {
   const [open, setOpen] = useState(false)
+  // Solid black at the top; once the page scrolls it turns see-through
+  // (frosted glass) so it doesn't hide the content underneath.
+  const [scrolled, setScrolled] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center">
-      <nav className="border-paper/12 bg-ink mx-auto mt-5 flex w-[min(92%,64rem)] items-center justify-between rounded-full border px-3 py-2 backdrop-blur-xl">
+      <nav
+        className={cn(
+          'border-paper/12 mx-auto mt-5 flex w-[min(92%,64rem)] items-center justify-between rounded-full border px-3 py-2 backdrop-blur-md transition-colors duration-500',
+          scrolled && !open ? 'bg-ink/45 hover:bg-ink/90' : 'bg-ink',
+        )}
+      >
         <a
           href="#inicio"
           className="font-display text-paper flex items-center gap-2 pl-2 text-lg tracking-tight uppercase"
@@ -37,7 +51,7 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-paper/70 hover:text-paper text-xs font-bold tracking-[0.18em] uppercase transition-colors duration-300"
+                className="text-paper/85 hover:text-paper text-xs font-bold tracking-[0.18em] uppercase transition-colors duration-300"
               >
                 {l.label}
               </a>
