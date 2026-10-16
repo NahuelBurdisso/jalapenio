@@ -108,7 +108,11 @@ function PepperMesh(props: ThreeElements['group']) {
             <sphereGeometry args={[0.1, 20, 20]} />
           </mesh>
           {/* curved stem sweeping up from the shoulder */}
-          <mesh geometry={stemGeo} material={chrome} position={[0.04, 1.02, 0]} />
+          <mesh
+            geometry={stemGeo}
+            material={chrome}
+            position={[0.04, 1.02, 0]}
+          />
         </group>
       </Float>
     </group>

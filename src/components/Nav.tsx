@@ -27,7 +27,7 @@ export function Nav() {
             height="160"
             className="h-8 w-auto"
           />
-          <span style={{ fontFamily: 'Michroma, sans-serif', fontWeight: 600 }}>
+          <span className="text-base font-semibold tracking-normal">
             Jalapeño
           </span>
         </a>
@@ -91,7 +91,7 @@ export function Nav() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 + i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                className="display text-paper hover:text-ember text-6xl transition-colors"
+                className="display text-paper hover:text-ember text-4xl transition-colors"
               >
                 {l.label}
               </motion.a>

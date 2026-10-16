@@ -65,7 +65,7 @@ function PlanCard({ p, i }: { p: Plan; i: number }) {
         )}
       >
         <div className="flex items-center justify-between gap-3">
-          <span className="display text-4xl">{p.index}</span>
+          <span className="display text-3xl">{p.index}</span>
           {p.badge && (
             <span
               className={cn(
@@ -78,14 +78,14 @@ function PlanCard({ p, i }: { p: Plan; i: number }) {
           )}
         </div>
 
-        <h3 className="display mt-4 text-7xl sm:text-8xl">{p.name}</h3>
+        <h3 className="display mt-4 text-5xl sm:text-6xl">{p.name}</h3>
         <p className={cn('mt-3 text-sm', t.muted)}>{p.tagline}</p>
 
         {SHOW_PRICES && (
           <div className={cn('mt-6 border-b pb-6', t.rule)}>
             <span className={cn('text-xs', t.muted)}>desde</span>
             <p className="flex items-baseline gap-2">
-              <span className={cn('display text-5xl', t.price)}>{p.price}</span>
+              <span className={cn('display text-3xl', t.price)}>{p.price}</span>
               <span className={cn('text-sm', t.muted)}>/ mes</span>
             </p>
           </div>
@@ -129,7 +129,7 @@ export function Plans() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
+        className="display stroke-text text-ink/10 pointer-events-none absolute top-6 right-3 z-0 text-[15.6vw] lg:text-[9rem]"
       >
         04.
       </span>
@@ -141,7 +141,7 @@ export function Plans() {
           </p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="display text-ink text-[18vw] leading-none sm:text-9xl lg:text-[11rem]">
+          <h2 className="display text-ink text-[10.8vw] leading-none sm:text-7xl lg:text-[6.6rem]">
             Elegí el <span className="text-chili">picor</span>
           </h2>
         </Reveal>
@@ -181,20 +181,20 @@ export function Plans() {
           <article className="bg-ink text-paper ring-chili relative mt-6 grid gap-8 overflow-hidden rounded-xl p-7 ring-2 sm:p-9 lg:grid-cols-[1fr_1.2fr_auto] lg:items-center lg:gap-12">
             <div>
               <div className="flex items-center gap-3">
-                <span className="display text-4xl">{FUEGO.index}</span>
+                <span className="display text-3xl">{FUEGO.index}</span>
                 <span className="bg-chili text-paper rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.18em] uppercase">
                   A comisión
                 </span>
               </div>
-              <h3 className="display text-chili mt-4 text-7xl sm:text-8xl">
+              <h3 className="display text-chili mt-4 text-5xl sm:text-6xl">
                 {FUEGO.name}
               </h3>
               <p className="text-paper/75 mt-3 text-sm">{FUEGO.tagline}</p>
               {SHOW_PRICES && (
                 <p className="mt-5 flex flex-wrap items-baseline gap-2">
-                  <span className="display text-5xl">{FUEGO.price}</span>
+                  <span className="display text-3xl">{FUEGO.price}</span>
                   <span className="text-paper/75 text-sm">/ mes</span>
-                  <span className="display text-chili text-5xl">
+                  <span className="display text-chili text-3xl">
                     {FUEGO.commission}
                   </span>
                 </p>
@@ -227,7 +227,7 @@ export function Plans() {
         <Reveal>
           <div className="border-ink/15 mt-16 grid gap-10 border-t pt-14 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
             <div>
-              <h3 className="display text-5xl sm:text-6xl">
+              <h3 className="display text-3xl sm:text-4xl">
                 Configuración <span className="text-chili">inicial</span>
               </h3>
               <p className="text-ink/75 mt-4 max-w-lg text-sm leading-relaxed">
@@ -237,7 +237,7 @@ export function Plans() {
               {SHOW_PRICES && (
                 <p className="mt-5 flex flex-wrap items-baseline gap-3">
                   <span className="text-ink/65 text-xs">desde</span>
-                  <span className="display text-chili text-5xl">
+                  <span className="display text-chili text-3xl">
                     {SETUP.price}
                   </span>
                   <span className="text-ink/50 text-lg line-through">

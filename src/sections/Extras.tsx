@@ -20,7 +20,7 @@ export function Extras() {
     >
       <span
         aria-hidden
-        className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[26vw] lg:text-[15rem]"
+        className="display stroke-text text-paper/15 pointer-events-none absolute top-6 right-3 z-0 text-[15.6vw] lg:text-[9rem]"
       >
         05.
       </span>
@@ -34,7 +34,7 @@ export function Extras() {
             </p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="display mt-3 text-[18vw] leading-none sm:text-8xl lg:text-9xl">
+            <h2 className="display mt-3 text-[10.8vw] leading-none sm:text-6xl lg:text-7xl">
               Extras
             </h2>
           </Reveal>
@@ -99,7 +99,7 @@ export function Extras() {
             </p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="display mt-3 text-[18vw] leading-none sm:text-8xl lg:text-9xl">
+            <h2 className="display mt-3 text-[10.8vw] leading-none sm:text-6xl lg:text-7xl">
               Las reglas
             </h2>
           </Reveal>
@@ -111,7 +111,7 @@ export function Extras() {
                 delay={0.05 * i}
                 className="border-paper/25 flex gap-5 border-t py-5 last:border-b"
               >
-                <span className="display text-paper/60 w-8 shrink-0 text-2xl">
+                <span className="display text-paper/60 w-8 shrink-0 text-xl">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-paper/85 text-base leading-relaxed">
