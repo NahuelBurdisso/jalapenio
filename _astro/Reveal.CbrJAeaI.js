@@ -1,0 +1,1 @@
+import{j as r,c as i}from"./cn.CmecZbNW.js";function l({children:t,delay:s=0,className:a,as:e="div"}){const n=e,o=s?{transitionDelay:`${s}s`}:void 0;return r.jsx(n,{className:i("reveal",a),style:o,children:t})}export{l as R};
