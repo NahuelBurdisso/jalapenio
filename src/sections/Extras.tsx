@@ -64,8 +64,11 @@ export function Extras() {
 
         <Reveal delay={0.1}>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <p className="bg-ink m-0 inline-flex rounded-full px-5 py-3 text-xs font-bold tracking-[0.15em] uppercase">
-              Auditoría de tu cuenta · Gratis
+            <p className="bg-ink m-0 inline-flex flex-col rounded-[22px] px-5 py-3 text-xs font-bold tracking-[0.1em] uppercase sm:flex-row sm:rounded-full sm:tracking-[0.15em]">
+              <span>Una auditoría con sincericidio</span>
+              <span className="text-paper/75 sm:text-paper">
+                <span className="hidden sm:inline">&nbsp;·&nbsp;</span>Gratis
+              </span>
             </p>
             <a
               href={AUDIT_HREF}
