@@ -23,14 +23,17 @@ const AUDIT_HREF = `${SITE.whatsapp}?text=${encodeURIComponent(
     </p>
 
     {/* poster cover: the logo lockup fills (almost) the whole width; the
-        brand line sits under the wordmark, where the logo's tagline goes */}
+        brand line sits under the wordmark, where the logo's tagline goes.
+        On desktop the width is also capped by the viewport height
+        (20rem ≈ menu + founder line + buttons + tape; 1.706 = logo ratio)
+        so the whole logo fits on screen without scrolling. */}
     <div class="flex flex-1 flex-col items-center justify-center py-8">
-      <div class="relative -mx-4 w-[calc(100%+2rem)] max-w-[84rem] [container-type:inline-size] sm:mx-0 sm:w-[min(96vw,84rem)]">
+      <div class="relative -mx-4 w-[calc(100%+2rem)] max-w-[84rem] [container-type:inline-size] sm:mx-0 sm:w-[min(96vw,84rem,max(30rem,calc((100dvh_-_20rem)_*_1.706)))]">
         <h1 class="m-0">
           <img
             src="/logo-jalapeno-v3.webp"
             srcset="/logo-jalapeno-v3-1400.webp 1400w, /logo-jalapeno-v3.webp 2749w"
-            sizes="(min-width: 640px) min(96vw, 84rem), calc(100vw + 2rem)"
+            sizes="(min-width: 640px) min(96vw, 84rem, max(30rem, calc((100dvh - 20rem) * 1.706))), calc(100vw + 2rem)"
             alt="Jalapeño"
             width="2749"
             height="1611"
