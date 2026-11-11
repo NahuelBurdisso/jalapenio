@@ -95,5 +95,5 @@ slot is marked in `src/layouts/Base.astro`.
 
 ## Post-launch follow-ups
 
-- **OG image:** `public/og-image.png` is a branded **placeholder**. Swap a final 1200×630.
+- **OG image:** `public/og-portada.jpg` (1200×630) es una captura de la portada. Si cambia la portada, regenerarla con nombre nuevo.
 - **Analytics (deferred):** none ships now; add Plausible/GA4 when wanted.

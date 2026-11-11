@@ -7,8 +7,8 @@ export const SITE = {
     'Estrategia de marketing digital, branding y campañas para encender el potencial de tu marca. Por Sofía Herrero.',
   locale: 'es_AR',
   lang: 'es',
-  ogImage: '/og-image.png',
-  ogImageAlt: 'Jalapeño Studio — Marketing Digital. si no arde, no impacta.',
+  ogImage: '/og-portada.jpg',
+  ogImageAlt: 'Portada de Jalapeño: logo con estrella cromada y la frase si no arde, no impacta.',
   themeColor: '#1e1d1c',
   // Real contact channels (the ones shown on the site).
   phone: '+5493541523489',
