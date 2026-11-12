@@ -4,7 +4,7 @@ export const SITE = {
   name: 'Jalapeño Studio',
   title: 'Jalapeño Studio — Marketing Digital',
   description:
-    'Estrategia de marketing digital, branding y campañas para encender el potencial de tu marca. Por Sofía Herrero.',
+    'Campañas en Meta Ads para negocios de Córdoba, pensadas para vender, no para juntar likes. Pedí tu auditoría gratis por WhatsApp.',
   locale: 'es_AR',
   lang: 'es',
   ogImage: '/og-portada.jpg',
