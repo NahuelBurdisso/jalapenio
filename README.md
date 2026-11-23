@@ -1,66 +1,46 @@
 # Jalapeño
 
-> Package/dir slug is `jalapenio` (ASCII) to avoid `ñ` breaking npm names,
-> paths, and URLs. The brand/display name is **Jalapeño**.
+Portfolio site for a digital marketing studio — motion-led, with a WebGL hero that degrades gracefully.
 
-Personal marketing portfolio — a creative, motion-led, WebGL-capable site.
+**Live:** https://www.jalapeno.studio
 
-Built via the `/frontend-team` workflow. This commit is the **scaffold only** —
-tooling, design tokens, smooth-scroll and 3D stack are wired; pages come next.
+Astro 5 · React 19 islands · TypeScript · Tailwind CSS v4 · three.js / React Three Fiber · Motion · Lenis
 
-## Stack
+> The package and repo slug is `jalapenio` (ASCII) so the `ñ` doesn't break npm names, paths or URLs.
 
-| Layer      | Tool                                                            |
-| ---------- | -------------------------------------------------------------- |
-| Build      | Vite 8 + React 19 + TypeScript 6                               |
-| Styling    | Tailwind CSS v4 (`@tailwindcss/vite`), tokens in `src/index.css` |
-| Motion     | `motion` (Framer) · GSAP · Lenis smooth-scroll                  |
-| 3D / WebGL | `three` · `@react-three/fiber` · `@react-three/drei`           |
-| Utilities  | `cn()` (clsx + tailwind-merge)                                 |
-| Quality    | ESLint · Prettier (+ tailwind plugin)                          |
+## What's interesting here
 
-## Scripts
-
-```bash
-npm run dev          # dev server
-npm run build        # typecheck + production build
-npm run preview      # serve production build
-npm run lint         # eslint
-npm run typecheck    # tsc, no emit
-npm run format       # prettier --write
-```
+- **WebGL that never blocks the page.** `WebglStar` renders an SVG star first, lazy-loads the three.js scene only after the first real user interaction, and falls back to the SVG through an error boundary if WebGL is unavailable or the canvas throws. The 3D chunk stays out of the initial load.
+- **Static first, hydrated where needed.** Pages are Astro; only the interactive pieces (3D scene, magnetic buttons, marquee, smooth scroll) ship as React islands.
+- **Motion system.** Scroll reveals, magnetic buttons, a marquee and Lenis smooth scrolling, built on design tokens in `src/styles/global.css`.
+- **Media discipline.** Videos are lazy (`LazyVideo`), images are WebP, fonts are self-hosted.
 
 ## Layout
 
 ```
 src/
-  components/   reusable UI
-  sections/     page sections (hero, work, about, contact…)
-  scenes/       R3F / WebGL scenes
-  hooks/        useLenis, …
-  lib/          cn, helpers
-public/fonts/   self-hosted fonts
+  pages/        index.astro
+  layouts/      Base.astro (SEO, meta)
+  sections/     Hero, HowIWork, Plans, Extras, Projects, Contact
+  components/   WebglStar, ChromeStar, Star, MagneticButton, Marquee, Reveal, …
+  scenes/       StarScene (React Three Fiber)
+  data/         projects.ts
+  hooks/ lib/   useLenis, cn, seo
 ```
 
 Path alias: `@/` → `src/`.
 
-## Deploy (Hostinger — Git nativo, igual que erp-vertix)
+## Scripts
 
-CI runs on every push/PR to `main` (`.github/workflows/ci.yml`: typecheck →
-lint → build).
+```bash
+npm run dev            # dev server
+npm run build          # static build → dist/
+npm run preview        # serve the build
+npm run check          # astro check (types)
+npm run lint           # eslint
+npm run format         # prettier --write
+```
 
-Deploy uses Hostinger's built-in Git integration:
+## Deploy
 
-1. **hPanel → Sitio web → Avanzado → GIT → Crear nuevo repositorio**
-   - Repository: `https://github.com/NahuelBurdisso/jalapenio.git`
-   - Branch: `main`
-2. **Build command:** `npm ci && npm run build`
-3. **Public / output directory:** `dist`
-4. Habilitá **Auto-deployment** para que despliegue en cada push a `main`
-   (Hostinger expone un webhook; opcionalmente conectalo en GitHub → Settings →
-   Webhooks).
-
-`public/.htaccess` viaja dentro de `dist/` y resuelve el ruteo SPA (rewrite a
-`index.html`), headers de seguridad (CSP) y cache de assets en el Apache de
-Hostinger.
-
+Every push to `main` runs CI (`.github/workflows/ci.yml`) and a second workflow that builds the site and publishes `dist/` to a `deploy` branch, which the host pulls. Details in [DEPLOY.md](./DEPLOY.md).
